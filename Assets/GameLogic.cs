@@ -90,11 +90,7 @@ public class GameLogic : MonoBehaviour
 
 
 
-        if (myDictionary[Card1].attack < myDictionary[Card2].attack)
-        {
-            LifePlayer1.SetCurrentFill(5);
-            LifePlayer2.SetCurrentFill(9);
-        }
+
 
     }
 

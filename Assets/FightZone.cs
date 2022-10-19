@@ -50,6 +50,8 @@ public class FightZone : MonoBehaviour
             if(CardPlayer2 != "")
             {
                 gameLogic.CalculateFight(CardPlayer1, CardPlayer2);
+                CardPlayer1 = "";
+                CardPlayer2 = "";
             }
 
         }
@@ -66,6 +68,8 @@ public class FightZone : MonoBehaviour
             if (CardPlayer1 != "")
             {
                 gameLogic.CalculateFight(CardPlayer1, CardPlayer2);
+                CardPlayer1 = "";
+                CardPlayer2 = "";
             }
 
         }
