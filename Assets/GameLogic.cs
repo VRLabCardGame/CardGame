@@ -13,8 +13,13 @@ public class GameLogic : MonoBehaviour
     public LifeLineFrontPlayer1 LifePlayer1;
     public LifeLineFrontPlayer1 LifePlayer2;
 
-    GameObject CardPlayer1;
-    GameObject CardPlayer2;
+    public GameObject FieldMarker;
+
+    Card CardPlayer1;
+    Card CardPlayer2;
+
+    Vector3 bufferPosition1;
+    Vector3 bufferPosition2;
 
     // Start is called before the first frame update
     void Start()
@@ -34,8 +39,14 @@ public class GameLogic : MonoBehaviour
         Debug.Log("Calculating Fight...");
         Debug.Log("Card1: " + Card1);
         Debug.Log("Card2: " + Card2);
-        CardPlayer1 = GameObject.Find(Card1);
-        CardPlayer2 = GameObject.Find(Card2);
+        CardPlayer1 = GameObject.Find(Card1).GetComponent<Card>();
+        CardPlayer2 = GameObject.Find(Card2).GetComponent<Card>();
+        //bufferPosition1 = CardPlayer1.transform.position;
+        //bufferPosition2 = CardPlayer2.transform.position;
+        //CardPlayer1.transform.position = new Vector3(FieldMarker.transform.position.x, 1+FieldMarker.transform.position.y,
+        //    FieldMarker.transform.position.z);
+        //CardPlayer1.transform.position = new Vector3(1+FieldMarker.transform.position.x, 1 + FieldMarker.transform.position.y,
+        //    FieldMarker.transform.position.z);
         Debug.Log(CardPlayer1.transform.localEulerAngles.z);
         Debug.Log(CardPlayer2.transform.localEulerAngles.z);
         if((CardPlayer1.transform.localEulerAngles.z < 45 || (CardPlayer1.transform.localEulerAngles.z > 135 
@@ -44,6 +55,8 @@ public class GameLogic : MonoBehaviour
             && CardPlayer2.transform.localEulerAngles.z < 225)))
         {
             Debug.Log("Rotation passt1");
+            CardPlayer1.SetAnimState(1);
+            CardPlayer2.SetAnimState(2);
             if(myDictionary[Card1].attack > myDictionary[Card2].attack)
             {
                 LifePlayer2.SetCurrentFill(LifePlayer2.GetCurrentFill() - (myDictionary[Card1].attack - myDictionary[Card2].attack));
@@ -59,6 +72,8 @@ public class GameLogic : MonoBehaviour
             || (CardPlayer2.transform.localEulerAngles.z < 315 && CardPlayer2.transform.localEulerAngles.z > 225)))
         {
             Debug.Log("Rotation passt2");
+            CardPlayer1.SetAnimState(1);
+            CardPlayer2.SetAnimState(2);
             if (myDictionary[Card1].attack > myDictionary[Card2].defense)
             {
                 Debug.Log("Destroying Card2");
@@ -74,6 +89,8 @@ public class GameLogic : MonoBehaviour
             || (CardPlayer1.transform.localEulerAngles.z < 315 && CardPlayer1.transform.localEulerAngles.z > 225)))
         {
             Debug.Log("Rotation passt3");
+            CardPlayer1.SetAnimState(2);
+            CardPlayer2.SetAnimState(1);
             if (myDictionary[Card2].attack > myDictionary[Card1].defense)
             {
                 Debug.Log("Destroying Card1");
@@ -87,6 +104,8 @@ public class GameLogic : MonoBehaviour
         {
             Debug.Log("nichts passt :(");
         }
+        //CardPlayer1.transform.position = bufferPosition1;
+        //CardPlayer2.transform.position = bufferPosition2;
 
 
 
