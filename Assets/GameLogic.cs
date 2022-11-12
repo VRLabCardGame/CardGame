@@ -56,15 +56,19 @@ public class GameLogic : MonoBehaviour
             && CardPlayer2.transform.localEulerAngles.z < 225)))
         {
             Debug.Log("Rotation passt1");
-            CardPlayer1.SetAnimState(1);
-            CardPlayer2.SetAnimState(2);
             if(myDictionary[Card1].attack > myDictionary[Card2].attack)
             {
                 LifePlayer2.SetCurrentFill(LifePlayer2.GetCurrentFill() - (myDictionary[Card1].attack - myDictionary[Card2].attack));
+                CardPlayer1.SetAnimState(1);
+                CardPlayer2.SetAnimState(3);
+                Debug.Log("Fall 1.1");
             }
             else
             {
                 LifePlayer1.SetCurrentFill(LifePlayer1.GetCurrentFill() - (myDictionary[Card2].attack - myDictionary[Card1].attack));
+                CardPlayer1.SetAnimState(3);
+                CardPlayer2.SetAnimState(1);
+                Debug.Log("Fall 1.2");
             }
         }
         else if ((CardPlayer1.transform.localEulerAngles.z < 45 || (CardPlayer1.transform.localEulerAngles.z > 135
@@ -72,16 +76,20 @@ public class GameLogic : MonoBehaviour
             ((CardPlayer2.transform.localEulerAngles.z > 45 && CardPlayer2.transform.localEulerAngles.z < 135)
             || (CardPlayer2.transform.localEulerAngles.z < 315 && CardPlayer2.transform.localEulerAngles.z > 225)))
         {
-            Debug.Log("Rotation passt2");
-            CardPlayer1.SetAnimState(1);
-            CardPlayer2.SetAnimState(2);
+            Debug.Log("Rotation passt2");          
             if (myDictionary[Card1].attack > myDictionary[Card2].defense)
             {
                 Debug.Log("Destroying Card2");
+                CardPlayer1.SetAnimState(1);
+                CardPlayer2.SetAnimState(4);
+                Debug.Log("Fall 2.1");
             }
             else
             {
                 LifePlayer1.SetCurrentFill(LifePlayer1.GetCurrentFill() - (myDictionary[Card2].defense - myDictionary[Card1].attack));
+                CardPlayer1.SetAnimState(1);
+                CardPlayer2.SetAnimState(2);
+                Debug.Log("Fall 2.2");
             }
         }
         else if ((CardPlayer2.transform.localEulerAngles.z < 45 || (CardPlayer2.transform.localEulerAngles.z > 135
@@ -90,15 +98,19 @@ public class GameLogic : MonoBehaviour
             || (CardPlayer1.transform.localEulerAngles.z < 315 && CardPlayer1.transform.localEulerAngles.z > 225)))
         {
             Debug.Log("Rotation passt3");
-            CardPlayer1.SetAnimState(2);
-            CardPlayer2.SetAnimState(1);
             if (myDictionary[Card2].attack > myDictionary[Card1].defense)
             {
                 Debug.Log("Destroying Card1");
+                CardPlayer1.SetAnimState(4);
+                CardPlayer2.SetAnimState(1);
+                Debug.Log("Fall 3.1");
             }
             else
             {
                 LifePlayer2.SetCurrentFill(LifePlayer2.GetCurrentFill() - (myDictionary[Card1].defense - myDictionary[Card2].attack));
+                CardPlayer1.SetAnimState(2);
+                CardPlayer2.SetAnimState(1);
+                Debug.Log("Fall 3.2");
             }
         }
         else
