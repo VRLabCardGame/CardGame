@@ -26,7 +26,7 @@ public class GameLogic : MonoBehaviour
     {
         myDictionary.Add("Card1", (2, 2));
         myDictionary.Add("Card2", (1, 2));
-        myDictionary.Add("fish", (0, 0));
+        myDictionary.Add("fish", (3, 3));
     }
 
     // Update is called once per frame
