@@ -11,6 +11,7 @@ public class Card : MonoBehaviour
     public int defense;
     public int animState;
 
+
     // Start is called before the first frame update
     void Start()
     {
@@ -43,4 +44,20 @@ public class Card : MonoBehaviour
         anim.SetInteger("animState", newState);
     }
 
+    public void SetFight(bool newState)
+    {
+        anim.SetBool("fight", newState);
+    }
+    public void SetDefense(bool newState)
+    {
+        anim.SetBool("defend", newState);
+    }
+    public void SetDeath(bool newState)
+    {
+        anim.SetBool("death", newState);
+    }
+    public void SetIdle(bool newState)
+    {
+        anim.SetBool("idle", newState);
+    }
 }
