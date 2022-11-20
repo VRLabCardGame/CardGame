@@ -21,12 +21,16 @@ public class GameLogic : MonoBehaviour
     Vector3 bufferPosition1;
     Vector3 bufferPosition2;
 
+    public GameObject particles1;
+
+    
+
     // Start is called before the first frame update
     void Start()
     {
         myDictionary.Add("Card1", (2, 2));
         myDictionary.Add("Card2", (1, 2));
-        myDictionary.Add("fish", (3, 3));
+        myDictionary.Add("fish", (0, 0));
     }
 
     // Update is called once per frame
@@ -56,6 +60,8 @@ public class GameLogic : MonoBehaviour
             && CardPlayer2.transform.localEulerAngles.z < 225)))
         {
             CardPlayer1.SetFight(true);
+            GameObject go = Instantiate(particles1, CardPlayer1.transform.position, Quaternion.identity);
+            go.SendMessage("InitializeFinalPosition", CardPlayer2.transform.position);
             CardPlayer2.SetFight(true);
             Debug.Log("Rotation passt1");
             if(myDictionary[Card1].attack > myDictionary[Card2].attack)
@@ -91,6 +97,8 @@ public class GameLogic : MonoBehaviour
             || (CardPlayer2.transform.localEulerAngles.z < 315 && CardPlayer2.transform.localEulerAngles.z > 225)))
         {
             CardPlayer1.SetFight(true);
+            GameObject go = Instantiate(particles1, CardPlayer1.transform.position, Quaternion.identity);
+            go.SendMessage("InitializeFinalPosition", CardPlayer2.transform.position);
             CardPlayer2.SetDefense(true);
             Debug.Log("Rotation passt2");          
             if (myDictionary[Card1].attack > myDictionary[Card2].defense)
@@ -127,6 +135,8 @@ public class GameLogic : MonoBehaviour
         {
             CardPlayer1.SetDefense(true);
             CardPlayer2.SetFight(true);
+            GameObject go = Instantiate(particles1, CardPlayer2.transform.position, Quaternion.identity);
+            go.SendMessage("InitializeFinalPosition", CardPlayer1.transform.position);
             Debug.Log("Rotation passt3");
             if (myDictionary[Card2].attack > myDictionary[Card1].defense)
             {
