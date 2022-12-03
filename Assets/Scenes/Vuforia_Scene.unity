@@ -1148,6 +1148,7 @@ GameObject:
   - component: {fileID: 681355282}
   - component: {fileID: 681355281}
   - component: {fileID: 681355280}
+  - component: {fileID: 681355283}
   m_Layer: 0
   m_Name: Spell_Zone
   m_TagString: Untagged
@@ -1177,7 +1178,7 @@ BoxCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 681355278}
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
@@ -1231,6 +1232,21 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 681355278}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &681355283
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 681355278}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 52ee3f7b0c74c2041ae16438e09a4fd3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  onTriggerEnter:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!1 &867021259
 GameObject:
   m_ObjectHideFlags: 0
@@ -2688,6 +2704,7 @@ GameObject:
   - component: {fileID: 1783447354}
   - component: {fileID: 1783447353}
   - component: {fileID: 1783447352}
+  - component: {fileID: 1783447355}
   m_Layer: 0
   m_Name: Spell_Zone
   m_TagString: Untagged
@@ -2717,7 +2734,7 @@ BoxCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1783447350}
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
@@ -2771,6 +2788,21 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1783447350}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &1783447355
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1783447350}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 52ee3f7b0c74c2041ae16438e09a4fd3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  onTriggerEnter:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!1 &1799390862
 GameObject:
   m_ObjectHideFlags: 0
@@ -3161,6 +3193,8 @@ MonoBehaviour:
   LifePlayer2: {fileID: 263877372}
   FieldMarker: {fileID: 1671380530}
   particles1: {fileID: 8916162442162648550, guid: 9f29d7c0ae7e2bc43af032e7bae5e73c, type: 3}
+  spellZonePlayer1: {fileID: 681355283}
+  spellZonePlayer2: {fileID: 1783447355}
 --- !u!4 &2135898699
 Transform:
   m_ObjectHideFlags: 0

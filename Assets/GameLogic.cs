@@ -27,8 +27,12 @@ public class GameLogic : MonoBehaviour
     Vector3 bufferPosition2;
 
     public GameObject particles1;
+    public SpellZone spellZonePlayer1;
+    public SpellZone spellZonePlayer2;
 
-    
+    string activeSpellCard;
+
+
 
     // Start is called before the first frame update
     void Start()
@@ -62,6 +66,38 @@ public class GameLogic : MonoBehaviour
         return modifs;
     }
 
+    void OnEnable()
+    {
+        spellZonePlayer1.onTriggerEnter.AddListener(UseSpellCard);
+        spellZonePlayer2.onTriggerEnter.AddListener(UseSpellCard);
+
+    }
+
+    void OnDisable()
+    {
+        spellZonePlayer1.onTriggerEnter.RemoveListener(UseSpellCard);
+        spellZonePlayer2.onTriggerEnter.RemoveListener(UseSpellCard);
+
+    }
+
+    void UseSpellCard(Collider other)
+    {
+        activeSpellCard = other.transform.name;
+    }
+
+    Dictionary<string, (int attack, int defense)> CalculateSpellCard(string Card1, string Card2)
+    {
+        Dictionary<string, (int attack, int defense)> modifs = new Dictionary<string, (int attack, int defense)>();
+        if (activeSpellCard == "") { }
+        else if(activeSpellCard == "") { }
+        else
+        {
+            modifs.Add(Card1, (myDictionary[Card1].attack, myDictionary[Card1].defense));
+            modifs.Add(Card2, (myDictionary[Card2].attack, myDictionary[Card2].defense));
+        }
+        return modifs;
+    }
+
     public void CalculateFight(string Card1,  string Card2)
     {
         Debug.Log("Calculating Fight...");
@@ -70,6 +106,7 @@ public class GameLogic : MonoBehaviour
         CardPlayer1 = GameObject.Find(Card1).GetComponent<Card>();
         CardPlayer2 = GameObject.Find(Card2).GetComponent<Card>();
         modifications = UseElements(Card1, Card2);
+        Dictionary<string, (int attack, int defense)> fightDictionary = CalculateSpellCard(Card1, Card2);
         Debug.Log(CardPlayer1.transform.localEulerAngles.z);
         Debug.Log(CardPlayer2.transform.localEulerAngles.z);
         if((CardPlayer1.transform.localEulerAngles.z < 45 || (CardPlayer1.transform.localEulerAngles.z > 135 
@@ -82,8 +119,9 @@ public class GameLogic : MonoBehaviour
             go.SendMessage("InitializeFinalPosition", CardPlayer2.transform.position);
             CardPlayer2.SetFight(true);
             Debug.Log("Rotation passt1");
-            if(myDictionary[Card1].attack + modifications[0] > myDictionary[Card2].attack + modifications[1])
+            if(fightDictionary[Card1].attack + modifications[0] > fightDictionary[Card2].attack + modifications[1])
             {
+                // Change!!!!!!
                 LifePlayer2.SetCurrentFill(LifePlayer2.GetCurrentFill() - (myDictionary[Card1].attack - myDictionary[Card2].attack));
                 Debug.Log("Fall 1.1");
                 CardPlayer1.SetFight(false);
@@ -111,7 +149,7 @@ public class GameLogic : MonoBehaviour
             go.SendMessage("InitializeFinalPosition", CardPlayer2.transform.position);
             CardPlayer2.SetDefense(true);
             Debug.Log("Rotation passt2");          
-            if (myDictionary[Card1].attack + modifications[0] > myDictionary[Card2].defense + modifications[1])
+            if (fightDictionary[Card1].attack + modifications[0] > fightDictionary[Card2].defense + modifications[1])
             {
                 Debug.Log("Destroying Card2");
                 Debug.Log("Fall 2.1");
@@ -140,7 +178,7 @@ public class GameLogic : MonoBehaviour
             GameObject go = Instantiate(particles1, CardPlayer2.transform.position, Quaternion.identity);
             go.SendMessage("InitializeFinalPosition", CardPlayer1.transform.position);
             Debug.Log("Rotation passt3");
-            if (myDictionary[Card2].attack + modifications[0] > myDictionary[Card1].defense + modifications[1])
+            if (fightDictionary[Card2].attack + modifications[0] > fightDictionary[Card1].defense + modifications[1])
             {
                 Debug.Log("Destroying Card1");
                 Debug.Log("Fall 3.1");
