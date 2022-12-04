@@ -70,26 +70,127 @@ public class GameLogic : MonoBehaviour
     {
         spellZonePlayer1.onTriggerEnter.AddListener(UseSpellCard);
         spellZonePlayer2.onTriggerEnter.AddListener(UseSpellCard);
-
+        spellZonePlayer1.onTriggerExit.AddListener(EndUseSpellCard);
+        spellZonePlayer2.onTriggerExit.AddListener(EndUseSpellCard);
     }
 
     void OnDisable()
     {
         spellZonePlayer1.onTriggerEnter.RemoveListener(UseSpellCard);
         spellZonePlayer2.onTriggerEnter.RemoveListener(UseSpellCard);
-
+        spellZonePlayer1.onTriggerExit.RemoveListener(EndUseSpellCard);
+        spellZonePlayer2.onTriggerExit.RemoveListener(EndUseSpellCard);
     }
 
     void UseSpellCard(Collider other)
     {
         activeSpellCard = other.transform.name;
     }
+    void EndUseSpellCard(Collider other)
+    {
+        activeSpellCard = null;
+    }
 
     Dictionary<string, (int attack, int defense)> CalculateSpellCard(string Card1, string Card2)
     {
         Dictionary<string, (int attack, int defense)> modifs = new Dictionary<string, (int attack, int defense)>();
-        if (activeSpellCard == "") { }
-        else if(activeSpellCard == "") { }
+        if (activeSpellCard == "SwitchAttackDefense") {
+            modifs.Add(Card1, (myDictionary[Card1].defense, myDictionary[Card1].attack));
+            modifs.Add(Card2, (myDictionary[Card2].defense, myDictionary[Card2].attack));
+        }
+        else if(activeSpellCard == "SwitchMonstersValues") {
+            modifs.Add(Card1, (myDictionary[Card2].attack, myDictionary[Card2].defense));
+            modifs.Add(Card2, (myDictionary[Card1].attack, myDictionary[Card1].defense));
+        }
+        else if (activeSpellCard == "Fire+")
+        {
+            if(myDictionary[Card1].element == 2)
+            {
+                modifs.Add(Card1, (myDictionary[Card1].attack + 2, myDictionary[Card1].defense));
+            }
+            else
+            {
+                modifs.Add(Card1, (myDictionary[Card1].attack, myDictionary[Card1].defense));
+            }
+            if (myDictionary[Card2].element == 2)
+            {
+                modifs.Add(Card2, (myDictionary[Card2].attack + 2, myDictionary[Card2].defense));
+            }
+            else
+            {
+                modifs.Add(Card2, (myDictionary[Card2].attack, myDictionary[Card2].defense));
+            }
+        }
+        else if (activeSpellCard == "Nature+")
+        {
+            if (myDictionary[Card1].element == 3)
+            {
+                modifs.Add(Card1, (myDictionary[Card1].attack + 2, myDictionary[Card1].defense));
+            }
+            else
+            {
+                modifs.Add(Card1, (myDictionary[Card1].attack, myDictionary[Card1].defense));
+            }
+            if (myDictionary[Card2].element == 3)
+            {
+                modifs.Add(Card2, (myDictionary[Card2].attack + 2, myDictionary[Card2].defense));
+            }
+            else
+            {
+                modifs.Add(Card2, (myDictionary[Card2].attack, myDictionary[Card2].defense));
+            }
+        }
+        else if (activeSpellCard == "Water+")
+        {
+            if (myDictionary[Card1].element == 1)
+            {
+                modifs.Add(Card1, (myDictionary[Card1].attack + 2, myDictionary[Card1].defense));
+            }
+            else
+            {
+                modifs.Add(Card1, (myDictionary[Card1].attack, myDictionary[Card1].defense));
+            }
+            if (myDictionary[Card2].element == 1)
+            {
+                modifs.Add(Card2, (myDictionary[Card2].attack + 2, myDictionary[Card2].defense));
+            }
+            else
+            {
+                modifs.Add(Card2, (myDictionary[Card2].attack, myDictionary[Card2].defense));
+            }
+        }
+        else if (activeSpellCard == "Lightning+")
+        {
+            if (myDictionary[Card1].element == 0)
+            {
+                modifs.Add(Card1, (myDictionary[Card1].attack + 2, myDictionary[Card1].defense));
+            }
+            else
+            {
+                modifs.Add(Card1, (myDictionary[Card1].attack, myDictionary[Card1].defense));
+            }
+            if (myDictionary[Card2].element == 0)
+            {
+                modifs.Add(Card2, (myDictionary[Card2].attack + 2, myDictionary[Card2].defense));
+            }
+            else
+            {
+                modifs.Add(Card2, (myDictionary[Card2].attack, myDictionary[Card2].defense));
+            }
+        }
+        else if(activeSpellCard == "ChangeElementOrder")
+        {
+            if (myDictionary[Card1].element - myDictionary[Card2].element == -1 || myDictionary[Card1].element - myDictionary[Card2].element == 3)
+            {
+                modifs.Add(Card1, (myDictionary[Card1].attack - 4, myDictionary[Card1].defense - 4));
+                modifs.Add(Card2, (myDictionary[Card2].attack, myDictionary[Card2].defense));
+            }
+            else if (myDictionary[Card1].element - myDictionary[Card2].element == 1 || myDictionary[Card1].element - myDictionary[Card2].element == -3)
+            {
+                modifs.Add(Card1, (myDictionary[Card1].attack, myDictionary[Card1].defense));
+                modifs.Add(Card2, (myDictionary[Card2].attack - 4, myDictionary[Card2].defense - 4));
+            }
+        }
         else
         {
             modifs.Add(Card1, (myDictionary[Card1].attack, myDictionary[Card1].defense));
@@ -121,20 +222,19 @@ public class GameLogic : MonoBehaviour
             Debug.Log("Rotation passt1");
             if(fightDictionary[Card1].attack + modifications[0] > fightDictionary[Card2].attack + modifications[1])
             {
-                // Change!!!!!!
-                LifePlayer2.SetCurrentFill(LifePlayer2.GetCurrentFill() - (myDictionary[Card1].attack - myDictionary[Card2].attack));
+                LifePlayer2.SetCurrentFill(LifePlayer2.GetCurrentFill() - (fightDictionary[Card1].attack + modifications[0] - fightDictionary[Card2].attack + modifications[1]));
                 Debug.Log("Fall 1.1");
-                CardPlayer1.SetFight(false);
-                CardPlayer2.SetFight(false);
+                //CardPlayer1.SetFight(false);
+                //CardPlayer2.SetFight(false);
                 CardPlayer1.SetIdle(true);
                 CardPlayer2.SetDeath(true);
             }
             else
             {
-                LifePlayer1.SetCurrentFill(LifePlayer1.GetCurrentFill() - (myDictionary[Card2].attack - myDictionary[Card1].attack));
+                LifePlayer1.SetCurrentFill(LifePlayer1.GetCurrentFill() - (fightDictionary[Card2].attack + modifications[1] - fightDictionary[Card1].attack + modifications[0]));
                 Debug.Log("Fall 1.2");
-                CardPlayer1.SetDeath(true);
-                CardPlayer2.SetDeath(true);
+                CardPlayer1.SetFight(true);
+                CardPlayer2.SetFight(true);
                 CardPlayer2.SetIdle(true);
                 CardPlayer1.SetDeath(true);
             }
@@ -160,7 +260,7 @@ public class GameLogic : MonoBehaviour
             }
             else
             {
-                LifePlayer1.SetCurrentFill(LifePlayer1.GetCurrentFill() - (myDictionary[Card2].defense - myDictionary[Card1].attack));
+                LifePlayer1.SetCurrentFill(LifePlayer1.GetCurrentFill() - (fightDictionary[Card2].defense + modifications[1] - fightDictionary[Card1].attack + modifications[0]));
                 Debug.Log("Fall 2.2");
                 CardPlayer1.SetFight(false);
                 CardPlayer2.SetDefense(false);
@@ -189,7 +289,7 @@ public class GameLogic : MonoBehaviour
             }
             else
             {
-                LifePlayer2.SetCurrentFill(LifePlayer2.GetCurrentFill() - (myDictionary[Card1].defense - myDictionary[Card2].attack));
+                LifePlayer2.SetCurrentFill(LifePlayer2.GetCurrentFill() - (fightDictionary[Card1].defense + modifications[0] - fightDictionary[Card2].attack + modifications[1]));
                 Debug.Log("Fall 3.2");
                 CardPlayer2.SetFight(false);
                 CardPlayer1.SetDefense(false);

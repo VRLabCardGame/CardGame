@@ -8,6 +8,8 @@ public class SpellZone : MonoBehaviour
 {
 
     public UnityEvent<Collider> onTriggerEnter;
+    public UnityEvent<Collider> onTriggerExit;
+
 
     // Start is called before the first frame update
     void Start()
@@ -28,6 +30,17 @@ public class SpellZone : MonoBehaviour
         {
             Debug.Log("Collision");
             onTriggerEnter.Invoke(other);
+        }
+        // Do stuff
+    }
+
+    void OnTriggerExit(Collider other)
+    {
+        Debug.Log("Collision1");
+        if (other.transform.tag == "SpellCard")
+        {
+            Debug.Log("Collision");
+            onTriggerExit.Invoke(other);
         }
         // Do stuff
     }
