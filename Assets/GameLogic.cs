@@ -215,6 +215,9 @@ public class GameLogic : MonoBehaviour
             (CardPlayer2.transform.localEulerAngles.z < 45 || (CardPlayer2.transform.localEulerAngles.z > 135
             && CardPlayer2.transform.localEulerAngles.z < 225)))
         {
+            CardPlayer1.transform.LookAt(CardPlayer2.transform.position);
+            CardPlayer2.transform.LookAt(CardPlayer1.transform.position);
+
             CardPlayer1.SetFight(true);
             GameObject go = Instantiate(particles1, CardPlayer1.transform.position, Quaternion.identity);
             go.SendMessage("InitializeFinalPosition", CardPlayer2.transform.position);
@@ -224,8 +227,8 @@ public class GameLogic : MonoBehaviour
             {
                 LifePlayer2.SetCurrentFill(LifePlayer2.GetCurrentFill() - (fightDictionary[Card1].attack + modifications[0] - fightDictionary[Card2].attack + modifications[1]));
                 Debug.Log("Fall 1.1");
-                //CardPlayer1.SetFight(false);
-                //CardPlayer2.SetFight(false);
+                CardPlayer1.SetFight(true); // false?
+                CardPlayer2.SetFight(true);
                 CardPlayer1.SetIdle(true);
                 CardPlayer2.SetDeath(true);
             }
@@ -244,6 +247,8 @@ public class GameLogic : MonoBehaviour
             ((CardPlayer2.transform.localEulerAngles.z > 45 && CardPlayer2.transform.localEulerAngles.z < 135)
             || (CardPlayer2.transform.localEulerAngles.z < 315 && CardPlayer2.transform.localEulerAngles.z > 225)))
         {
+            CardPlayer1.transform.LookAt(CardPlayer2.transform.position);
+            CardPlayer2.transform.LookAt(CardPlayer1.transform.position);
             CardPlayer1.SetFight(true);
             GameObject go = Instantiate(particles1, CardPlayer1.transform.position, Quaternion.identity);
             go.SendMessage("InitializeFinalPosition", CardPlayer2.transform.position);
@@ -273,6 +278,8 @@ public class GameLogic : MonoBehaviour
             (CardPlayer1.transform.localEulerAngles.z > 45 && CardPlayer1.transform.localEulerAngles.z < 135
             || (CardPlayer1.transform.localEulerAngles.z < 315 && CardPlayer1.transform.localEulerAngles.z > 225)))
         {
+            CardPlayer1.transform.LookAt(CardPlayer2.transform.position);
+            CardPlayer2.transform.LookAt(CardPlayer1.transform.position);
             CardPlayer1.SetDefense(true);
             CardPlayer2.SetFight(true);
             GameObject go = Instantiate(particles1, CardPlayer2.transform.position, Quaternion.identity);
