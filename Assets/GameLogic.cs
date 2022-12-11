@@ -178,6 +178,82 @@ public class GameLogic : MonoBehaviour
                 modifs.Add(Card2, (myDictionary[Card2].attack, myDictionary[Card2].defense));
             }
         }
+        else if (activeSpellCard == "FireDef+")
+        {
+            if (myDictionary[Card1].element == 2)
+            {
+                modifs.Add(Card1, (myDictionary[Card1].attack, myDictionary[Card1].defense + 2));
+            }
+            else
+            {
+                modifs.Add(Card1, (myDictionary[Card1].attack, myDictionary[Card1].defense));
+            }
+            if (myDictionary[Card2].element == 2)
+            {
+                modifs.Add(Card2, (myDictionary[Card2].attack, myDictionary[Card2].defense + 2));
+            }
+            else
+            {
+                modifs.Add(Card2, (myDictionary[Card2].attack, myDictionary[Card2].defense));
+            }
+        }
+        else if (activeSpellCard == "NatureDef+")
+        {
+            if (myDictionary[Card1].element == 3)
+            {
+                modifs.Add(Card1, (myDictionary[Card1].attack, myDictionary[Card1].defense + 2));
+            }
+            else
+            {
+                modifs.Add(Card1, (myDictionary[Card1].attack, myDictionary[Card1].defense));
+            }
+            if (myDictionary[Card2].element == 3)
+            {
+                modifs.Add(Card2, (myDictionary[Card2].attack, myDictionary[Card2].defense + 2));
+            }
+            else
+            {
+                modifs.Add(Card2, (myDictionary[Card2].attack, myDictionary[Card2].defense));
+            }
+        }
+        else if (activeSpellCard == "WaterDef+")
+        {
+            if (myDictionary[Card1].element == 1)
+            {
+                modifs.Add(Card1, (myDictionary[Card1].attack, myDictionary[Card1].defense + 2));
+            }
+            else
+            {
+                modifs.Add(Card1, (myDictionary[Card1].attack, myDictionary[Card1].defense));
+            }
+            if (myDictionary[Card2].element == 1)
+            {
+                modifs.Add(Card2, (myDictionary[Card2].attack, myDictionary[Card2].defense + 2));
+            }
+            else
+            {
+                modifs.Add(Card2, (myDictionary[Card2].attack, myDictionary[Card2].defense));
+            }
+        }
+        else if (activeSpellCard == "LightningDef+")
+        {
+            if (myDictionary[Card1].element == 0)
+            {
+                modifs.Add(Card1, (myDictionary[Card1].attack, myDictionary[Card1].defense + 2));
+            }
+            else
+            {
+                modifs.Add(Card1, (myDictionary[Card1].attack, myDictionary[Card1].defense));
+            }
+            if (myDictionary[Card2].element == 0)
+            {
+                modifs.Add(Card2, (myDictionary[Card2].attack, myDictionary[Card2].defense + 2));
+            }
+            else
+            {
+                modifs.Add(Card2, (myDictionary[Card2].attack, myDictionary[Card2].defense));
+            }
+        }
         else if(activeSpellCard == "ChangeElementOrder")
         {
             if (myDictionary[Card1].element - myDictionary[Card2].element == -1 || myDictionary[Card1].element - myDictionary[Card2].element == 3)
