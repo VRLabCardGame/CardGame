@@ -7,6 +7,9 @@ TagManager:
   - FightZoneSide1
   - Card
   - SpellCard
+  - ParticlesBlitz
+  - ParticlesFeuer
+  - ParticlesWasser
   layers:
   - Default
   - TransparentFX

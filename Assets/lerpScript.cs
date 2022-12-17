@@ -40,6 +40,10 @@ public class lerpScript : MonoBehaviour
             //lerp!
             float perc = currentLerpTime / lerpTime;
             transform.position = Vector3.Lerp(startPos, endPos, perc);
+            if(transform.position == endPos)
+            {
+                Destroy(gameObject);
+            }
         }
     }
 }

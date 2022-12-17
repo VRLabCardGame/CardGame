@@ -85,10 +85,63 @@ public class GameLogic : MonoBehaviour
     void UseSpellCard(Collider other)
     {
         activeSpellCard = other.transform.name;
+        if (activeSpellCard == "Fire+" || activeSpellCard == "FireDef+")
+        {
+            foreach (var gameObj in GameObject.FindGameObjectsWithTag("ParticlesFeuer"))
+            {
+                var emission = GetComponent<ParticleSystem>().emission;
+                emission.enabled = true;
+            }
+        }
+        if (activeSpellCard == "Nature+" || activeSpellCard == "NatureDef+")
+        {
+            foreach (var gameObj in GameObject.FindGameObjectsWithTag("ParticlesNatur"))
+            {
+                var emission = GetComponent<ParticleSystem>().emission;
+                emission.enabled = true;
+            }
+        }
+        if (activeSpellCard == "Water+" || activeSpellCard == "WaterDef+")
+        {
+            foreach (var gameObj in GameObject.FindGameObjectsWithTag("ParticlesWasser"))
+            {
+                var emission = GetComponent<ParticleSystem>().emission;
+                emission.enabled = true;
+            }
+        }
+        if (activeSpellCard == "Lightning+" || activeSpellCard == "LightningDef+")
+        {
+            foreach (var gameObj in GameObject.FindGameObjectsWithTag("ParticlesBlitz"))
+            {
+                var emission = GetComponent<ParticleSystem>().emission;
+                emission.enabled = true;
+            }
+        }
+        
     }
     void EndUseSpellCard(Collider other)
     {
         activeSpellCard = null;
+        foreach (var gameObj in GameObject.FindGameObjectsWithTag("ParticlesFeuer"))
+        {
+            var emission = GetComponent<ParticleSystem>().emission;
+            emission.enabled = false;
+        }
+        foreach (var gameObj in GameObject.FindGameObjectsWithTag("ParticlesWasser"))
+        {
+            var emission = GetComponent<ParticleSystem>().emission;
+            emission.enabled = false;
+        }
+        foreach (var gameObj in GameObject.FindGameObjectsWithTag("ParticlesBlitz"))
+        {
+            var emission = GetComponent<ParticleSystem>().emission;
+            emission.enabled = false;
+        }
+        foreach (var gameObj in GameObject.FindGameObjectsWithTag("ParticlesNatur"))
+        {
+            var emission = GetComponent<ParticleSystem>().emission;
+            emission.enabled = false;
+        }
     }
 
     Dictionary<string, (int attack, int defense)> CalculateSpellCard(string Card1, string Card2)
