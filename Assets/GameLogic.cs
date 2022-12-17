@@ -38,7 +38,7 @@ public class GameLogic : MonoBehaviour
     void Start()
     {
         myDictionary.Add("Card1", (2, 2, 0));
-        myDictionary.Add("Card2", (1, 2, 0));
+        myDictionary.Add("Card2", (3, 2, 2));
         myDictionary.Add("fish", (0, 3, 1));
     }
 
