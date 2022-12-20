@@ -39,7 +39,7 @@ public class GameLogic : MonoBehaviour
     {
         myDictionary.Add("Card1", (2, 2, 0));
         myDictionary.Add("Card2", (3, 2, 2));
-        myDictionary.Add("fish", (0, 3, 1));
+        myDictionary.Add("fish", (0, 0, 1));
     }
 
     // Update is called once per frame
@@ -337,12 +337,14 @@ public class GameLogic : MonoBehaviour
         CardPlayer2 = GameObject.Find(Card2).GetComponent<Card>();
         modifications = UseElements(Card1, Card2);
         Dictionary<string, (int attack, int defense)> fightDictionary = CalculateSpellCard(Card1, Card2);
-        Debug.Log(CardPlayer1.transform.localEulerAngles.z);
-        Debug.Log(CardPlayer2.transform.localEulerAngles.z);
-        if((CardPlayer1.transform.localEulerAngles.z < 45 || (CardPlayer1.transform.localEulerAngles.z > 135 
-            && CardPlayer1.transform.localEulerAngles.z < 225)) &&
-            (CardPlayer2.transform.localEulerAngles.z < 45 || (CardPlayer2.transform.localEulerAngles.z > 135
-            && CardPlayer2.transform.localEulerAngles.z < 225)))
+        Debug.Log(CardPlayer1.transform.parent.transform.localEulerAngles.z + ", x: " + CardPlayer1.transform.parent.transform.localEulerAngles.x + ", y: " + CardPlayer1.transform.parent.transform.localEulerAngles.y);
+        Debug.Log(CardPlayer2.transform.parent.transform.localEulerAngles.z + ", x2: " + CardPlayer2.transform.parent.transform.localEulerAngles.x + ", y: " + CardPlayer2.transform.parent.transform.localEulerAngles.y);
+        if((CardPlayer1.transform.parent.transform.localEulerAngles.y < 45 || CardPlayer1.transform.parent.transform.localEulerAngles.y > 315 ||
+            (CardPlayer1.transform.parent.transform.localEulerAngles.y > 135 
+            && CardPlayer1.transform.parent.transform.localEulerAngles.y < 225)) &&
+            (CardPlayer2.transform.parent.transform.localEulerAngles.y < 45 || CardPlayer2.transform.parent.transform.localEulerAngles.y > 315 || 
+            (CardPlayer2.transform.parent.transform.localEulerAngles.y > 135
+            && CardPlayer2.transform.parent.transform.localEulerAngles.y < 225)))
         {
             CardPlayer1.transform.LookAt(CardPlayer2.transform.position);
             CardPlayer2.transform.LookAt(CardPlayer1.transform.position);
@@ -379,46 +381,58 @@ public class GameLogic : MonoBehaviour
                 //CardPlayer2.SetFight(false);
             }
         }
-        else if ((CardPlayer1.transform.localEulerAngles.z < 45 || (CardPlayer1.transform.localEulerAngles.z > 135
-            && CardPlayer1.transform.localEulerAngles.z < 225)) &&
-            ((CardPlayer2.transform.localEulerAngles.z > 45 && CardPlayer2.transform.localEulerAngles.z < 135)
-            || (CardPlayer2.transform.localEulerAngles.z < 315 && CardPlayer2.transform.localEulerAngles.z > 225)))
+        else if ((CardPlayer1.transform.parent.transform.localEulerAngles.y < 45 || CardPlayer1.transform.parent.transform.localEulerAngles.y > 315 || 
+            (CardPlayer1.transform.parent.transform.localEulerAngles.y > 135
+            && CardPlayer1.transform.parent.transform.localEulerAngles.y < 225)) &&
+            ((CardPlayer2.transform.parent.transform.localEulerAngles.y > 45 && CardPlayer2.transform.parent.transform.localEulerAngles.y < 135)
+            || (CardPlayer2.transform.parent.transform.localEulerAngles.y < 315 && CardPlayer2.transform.parent.transform.localEulerAngles.y > 225)))
         {
             CardPlayer1.transform.LookAt(CardPlayer2.transform.position);
             CardPlayer2.transform.LookAt(CardPlayer1.transform.position);
             //CardPlayer1.SetFight(true);
+            CardPlayer1.SetFight0();
             GameObject go = Instantiate(particles1, CardPlayer1.transform.position, Quaternion.identity);
             go.SendMessage("InitializeFinalPosition", CardPlayer2.transform.position);
             //CardPlayer2.SetDefense(true);
+            CardPlayer2.SetDefense0();
             Debug.Log("Rotation passt2");          
             if (fightDictionary[Card1].attack + modifications[0] > fightDictionary[Card2].defense + modifications[1])
             {
                 Debug.Log("Destroying Card2");
                 Debug.Log("Fall 2.1");
-              //  CardPlayer1.SetFight(false);
-              //  CardPlayer2.SetDefense(false);
-              //  CardPlayer1.SetIdle(true);
-             //   CardPlayer2.SetDeath(true);
+                //  CardPlayer1.SetFight(false);
+                //  CardPlayer2.SetDefense(false);
+                CardPlayer1.SetIdle0();
+                CardPlayer2.SetDeath0();
+                //  CardPlayer1.SetIdle(true);
+                //   CardPlayer2.SetDeath(true);
             }
             else
             {
                 LifePlayer1.SetCurrentFill(LifePlayer1.GetCurrentFill() - (fightDictionary[Card2].defense + modifications[1] - fightDictionary[Card1].attack + modifications[0]));
                 Debug.Log("Fall 2.2");
-               // CardPlayer1.SetFight(false);
-               // CardPlayer2.SetDefense(false);
-               // CardPlayer1.SetIdle(true);
-               // CardPlayer2.SetIdle(true);
+                // CardPlayer1.SetFight(false);
+                // CardPlayer2.SetDefense(false);
+                CardPlayer1.SetIdle0();
+                CardPlayer2.SetIdle0();
+
+                // CardPlayer1.SetIdle(true);
+                // CardPlayer2.SetIdle(true);
             }
         }
-        else if ((CardPlayer2.transform.localEulerAngles.z < 45 || (CardPlayer2.transform.localEulerAngles.z > 135
-            && CardPlayer2.transform.localEulerAngles.z < 225)) &&
-            (CardPlayer1.transform.localEulerAngles.z > 45 && CardPlayer1.transform.localEulerAngles.z < 135
-            || (CardPlayer1.transform.localEulerAngles.z < 315 && CardPlayer1.transform.localEulerAngles.z > 225)))
+        else if ((CardPlayer2.transform.parent.transform.localEulerAngles.y < 45 || CardPlayer2.transform.parent.transform.localEulerAngles.y > 315 ||
+            (CardPlayer2.transform.parent.transform.localEulerAngles.y > 135
+            && CardPlayer2.transform.parent.transform.localEulerAngles.y < 225)) &&
+            (CardPlayer1.transform.parent.transform.localEulerAngles.y > 45 && CardPlayer1.transform.parent.transform.localEulerAngles.y < 135
+            || (CardPlayer1.transform.parent.transform.localEulerAngles.y < 315 && CardPlayer1.transform.parent.transform.localEulerAngles.y > 225)))
         {
             CardPlayer1.transform.LookAt(CardPlayer2.transform.position);
             CardPlayer2.transform.LookAt(CardPlayer1.transform.position);
-          //  CardPlayer1.SetDefense(true);
-           // CardPlayer2.SetFight(true);
+            //  CardPlayer1.SetDefense(true);
+            // CardPlayer2.SetFight(true);
+            CardPlayer1.SetDefense0();
+            CardPlayer2.SetFight0();
+
             GameObject go = Instantiate(particles1, CardPlayer2.transform.position, Quaternion.identity);
             go.SendMessage("InitializeFinalPosition", CardPlayer1.transform.position);
             Debug.Log("Rotation passt3");
@@ -426,19 +440,25 @@ public class GameLogic : MonoBehaviour
             {
                 Debug.Log("Destroying Card1");
                 Debug.Log("Fall 3.1");
-             //   CardPlayer2.SetFight(false);
-               // CardPlayer1.SetDefense(false);
-               // CardPlayer2.SetIdle(true);
-               // CardPlayer1.SetDeath(true);
+                //   CardPlayer2.SetFight(false);
+                // CardPlayer1.SetDefense(false);
+                CardPlayer2.SetIdle0();
+                CardPlayer1.SetDeath0();
+
+                // CardPlayer2.SetIdle(true);
+                // CardPlayer1.SetDeath(true);
             }
             else
             {
                 LifePlayer2.SetCurrentFill(LifePlayer2.GetCurrentFill() - (fightDictionary[Card1].defense + modifications[0] - fightDictionary[Card2].attack + modifications[1]));
                 Debug.Log("Fall 3.2");
-               // CardPlayer2.SetFight(false);
-               // CardPlayer1.SetDefense(false);
-               // CardPlayer1.SetIdle(true);
-               // CardPlayer2.SetIdle(true);
+                // CardPlayer2.SetFight(false);
+                // CardPlayer1.SetDefense(false);
+                CardPlayer2.SetIdle0();
+                CardPlayer2.SetIdle0();
+
+                // CardPlayer1.SetIdle(true);
+                // CardPlayer2.SetIdle(true);
             }
         }
         else
