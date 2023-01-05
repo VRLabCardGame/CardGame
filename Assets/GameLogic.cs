@@ -26,7 +26,13 @@ public class GameLogic : MonoBehaviour
     Vector3 bufferPosition1;
     Vector3 bufferPosition2;
 
+    public GameObject particles0;
     public GameObject particles1;
+    public GameObject particles2;
+    public GameObject particles3;
+    GameObject attackParticles2;
+    GameObject attackParticles1;
+
     public SpellZone spellZonePlayer1;
     public SpellZone spellZonePlayer2;
 
@@ -38,8 +44,9 @@ public class GameLogic : MonoBehaviour
     void Start()
     {
         myDictionary.Add("Card1", (2, 2, 0));
-        myDictionary.Add("Card2", (3, 2, 2));
+        myDictionary.Add("fox", (3, 2, 2));
         myDictionary.Add("fish", (0, 0, 1));
+        myDictionary.Add("fish_blue", (2,2,1));
     }
 
     // Update is called once per frame
@@ -63,6 +70,41 @@ public class GameLogic : MonoBehaviour
         List<int> modifs = new List<int>();
         modifs.Add(modificationCard1);
         modifs.Add(modificationCard2);
+
+        if(myDictionary[Card1].element == 0)
+        {
+            attackParticles1 = particles0;
+        }
+        else if(myDictionary[Card1].element == 1)
+        {
+            attackParticles1 = particles1;
+        }
+        else if (myDictionary[Card1].element == 2)
+        {
+            attackParticles1 = particles2;
+        }
+        else
+        {
+            attackParticles1 = particles3;
+        }
+
+        if (myDictionary[Card2].element == 0)
+        {
+            attackParticles2 = particles0;
+        }
+        else if (myDictionary[Card2].element == 1)
+        {
+            attackParticles2 = particles1;
+        }
+        else if (myDictionary[Card2].element == 2)
+        {
+            attackParticles2 = particles2;
+        }
+        else
+        {
+            attackParticles2 = particles3;
+        }
+
         return modifs;
     }
 
@@ -335,6 +377,9 @@ public class GameLogic : MonoBehaviour
         Debug.Log("Card2: " + Card2);
         CardPlayer1 = GameObject.Find(Card1).GetComponent<Card>();
         CardPlayer2 = GameObject.Find(Card2).GetComponent<Card>();
+        StartCoroutine(FightCoroutine(Card1, Card2));
+
+        /*
         modifications = UseElements(Card1, Card2);
         Dictionary<string, (int attack, int defense)> fightDictionary = CalculateSpellCard(Card1, Card2);
         Debug.Log(CardPlayer1.transform.parent.transform.localEulerAngles.z + ", x: " + CardPlayer1.transform.parent.transform.localEulerAngles.x + ", y: " + CardPlayer1.transform.parent.transform.localEulerAngles.y);
@@ -512,4 +557,147 @@ public class GameLogic : MonoBehaviour
         */
     }
 
+    
+    IEnumerator FightCoroutine(string Card1, string Card2)
+    {
+        
+        modifications = UseElements(Card1, Card2);
+        Dictionary<string, (int attack, int defense)> fightDictionary = CalculateSpellCard(Card1, Card2);
+        Debug.Log(CardPlayer1.transform.parent.transform.localEulerAngles.z + ", x: " + CardPlayer1.transform.parent.transform.localEulerAngles.x + ", y: " + CardPlayer1.transform.parent.transform.localEulerAngles.y);
+        Debug.Log(CardPlayer2.transform.parent.transform.localEulerAngles.z + ", x2: " + CardPlayer2.transform.parent.transform.localEulerAngles.x + ", y: " + CardPlayer2.transform.parent.transform.localEulerAngles.y);
+        if ((CardPlayer1.transform.parent.transform.localEulerAngles.y < 45 || CardPlayer1.transform.parent.transform.localEulerAngles.y > 315 ||
+            (CardPlayer1.transform.parent.transform.localEulerAngles.y > 135
+            && CardPlayer1.transform.parent.transform.localEulerAngles.y < 225)) &&
+            (CardPlayer2.transform.parent.transform.localEulerAngles.y < 45 || CardPlayer2.transform.parent.transform.localEulerAngles.y > 315 ||
+            (CardPlayer2.transform.parent.transform.localEulerAngles.y > 135
+            && CardPlayer2.transform.parent.transform.localEulerAngles.y < 225)))
+        {
+            CardPlayer1.transform.LookAt(CardPlayer2.transform.position);
+            CardPlayer2.transform.LookAt(CardPlayer1.transform.position);
+            yield return new WaitForSeconds(2);
+            //CardPlayer1.SetFight(true);
+            CardPlayer1.SetFight0();
+            GameObject go = Instantiate(attackParticles1, CardPlayer1.transform.position, Quaternion.identity);
+            go.SendMessage("InitializeFinalPosition", CardPlayer2.transform.position);
+            GameObject go1 = Instantiate(attackParticles2, CardPlayer2.transform.position, Quaternion.identity);
+            go1.SendMessage("InitializeFinalPosition", CardPlayer1.transform.position);
+            //CardPlayer2.SetFight(true);
+            CardPlayer2.SetFight0();
+            Debug.Log("Rotation passt1");
+            if (fightDictionary[Card1].attack + modifications[0] > fightDictionary[Card2].attack + modifications[1])
+            {
+                LifePlayer2.SetCurrentFill(LifePlayer2.GetCurrentFill() - (fightDictionary[Card1].attack + modifications[0] - fightDictionary[Card2].attack + modifications[1]));
+                Debug.Log("Fall 1.1");
+
+                //CardPlayer1.SetIdle(true);
+                //CardPlayer2.SetDeath(true);
+                CardPlayer1.SetIdle0();
+                CardPlayer2.SetDeath0();
+                //CardPlayer1.SetFight(false); // false? true?
+                //CardPlayer2.SetFight(false);
+            }
+            else
+            {
+                LifePlayer1.SetCurrentFill(LifePlayer1.GetCurrentFill() - (fightDictionary[Card2].attack + modifications[1] - fightDictionary[Card1].attack + modifications[0]));
+                Debug.Log("Fall 1.2");
+
+                //CardPlayer2.SetIdle(true);
+                //CardPlayer1.SetDeath(true);
+                CardPlayer2.SetIdle0();
+                CardPlayer1.SetDeath0();
+                //CardPlayer1.SetFight(false);
+                //CardPlayer2.SetFight(false);
+            }
+        }
+        else if ((CardPlayer1.transform.parent.transform.localEulerAngles.y < 45 || CardPlayer1.transform.parent.transform.localEulerAngles.y > 315 ||
+            (CardPlayer1.transform.parent.transform.localEulerAngles.y > 135
+            && CardPlayer1.transform.parent.transform.localEulerAngles.y < 225)) &&
+            ((CardPlayer2.transform.parent.transform.localEulerAngles.y > 45 && CardPlayer2.transform.parent.transform.localEulerAngles.y < 135)
+            || (CardPlayer2.transform.parent.transform.localEulerAngles.y < 315 && CardPlayer2.transform.parent.transform.localEulerAngles.y > 225)))
+        {
+            CardPlayer1.transform.LookAt(CardPlayer2.transform.position);
+            CardPlayer2.transform.LookAt(CardPlayer1.transform.position); 
+            yield return new WaitForSeconds(2);
+            //CardPlayer1.SetFight(true);
+            CardPlayer1.SetFight0();
+            GameObject go = Instantiate(attackParticles1, CardPlayer1.transform.position, Quaternion.identity);
+            go.SendMessage("InitializeFinalPosition", CardPlayer2.transform.position);
+            //CardPlayer2.SetDefense(true);
+            CardPlayer2.SetDefense0();
+            Debug.Log("Rotation passt2");
+            if (fightDictionary[Card1].attack + modifications[0] > fightDictionary[Card2].defense + modifications[1])
+            {
+                Debug.Log("Destroying Card2");
+                Debug.Log("Fall 2.1");
+                //  CardPlayer1.SetFight(false);
+                //  CardPlayer2.SetDefense(false);
+                CardPlayer1.SetIdle0();
+                CardPlayer2.SetDeath0();
+                //  CardPlayer1.SetIdle(true);
+                //   CardPlayer2.SetDeath(true);
+            }
+            else
+            {
+                LifePlayer1.SetCurrentFill(LifePlayer1.GetCurrentFill() - (fightDictionary[Card2].defense + modifications[1] - fightDictionary[Card1].attack + modifications[0]));
+                Debug.Log("Fall 2.2");
+                // CardPlayer1.SetFight(false);
+                // CardPlayer2.SetDefense(false);
+                CardPlayer1.SetIdle0();
+                CardPlayer2.SetIdle0();
+
+                // CardPlayer1.SetIdle(true);
+                // CardPlayer2.SetIdle(true);
+            }
+        }
+        else if ((CardPlayer2.transform.parent.transform.localEulerAngles.y < 45 || CardPlayer2.transform.parent.transform.localEulerAngles.y > 315 ||
+            (CardPlayer2.transform.parent.transform.localEulerAngles.y > 135
+            && CardPlayer2.transform.parent.transform.localEulerAngles.y < 225)) &&
+            (CardPlayer1.transform.parent.transform.localEulerAngles.y > 45 && CardPlayer1.transform.parent.transform.localEulerAngles.y < 135
+            || (CardPlayer1.transform.parent.transform.localEulerAngles.y < 315 && CardPlayer1.transform.parent.transform.localEulerAngles.y > 225)))
+        {
+            CardPlayer1.transform.LookAt(CardPlayer2.transform.position);
+            CardPlayer2.transform.LookAt(CardPlayer1.transform.position);
+            yield return new WaitForSeconds(2);
+            //  CardPlayer1.SetDefense(true);
+            // CardPlayer2.SetFight(true);
+            CardPlayer1.SetDefense0();
+            CardPlayer2.SetFight0();
+
+            GameObject go = Instantiate(attackParticles2, CardPlayer2.transform.position, Quaternion.identity);
+            go.SendMessage("InitializeFinalPosition", CardPlayer1.transform.position);
+            Debug.Log("Rotation passt3");
+            if (fightDictionary[Card2].attack + modifications[0] > fightDictionary[Card1].defense + modifications[1])
+            {
+                Debug.Log("Destroying Card1");
+                Debug.Log("Fall 3.1");
+                //   CardPlayer2.SetFight(false);
+                // CardPlayer1.SetDefense(false);
+                CardPlayer2.SetIdle0();
+                CardPlayer1.SetDeath0();
+
+                // CardPlayer2.SetIdle(true);
+                // CardPlayer1.SetDeath(true);
+            }
+            else
+            {
+                LifePlayer2.SetCurrentFill(LifePlayer2.GetCurrentFill() - (fightDictionary[Card1].defense + modifications[0] - fightDictionary[Card2].attack + modifications[1]));
+                Debug.Log("Fall 3.2");
+                // CardPlayer2.SetFight(false);
+                // CardPlayer1.SetDefense(false);
+                CardPlayer2.SetIdle0();
+                CardPlayer2.SetIdle0();
+
+                // CardPlayer1.SetIdle(true);
+                // CardPlayer2.SetIdle(true);
+            }
+        }
+        else
+        {
+            Debug.Log("nichts passt :(");
+        }
+        yield return new WaitForSeconds(5);
+        CardPlayer1.transform.eulerAngles = new Vector3(0, 0, 0);
+        CardPlayer2.transform.eulerAngles = new Vector3(0, 0, 0);
+
+    }
 }
