@@ -7,6 +7,46 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 3147913927817626618, guid: 9f29d7c0ae7e2bc43af032e7bae5e73c, type: 3}
+      propertyPath: InitialModule.startColor.maxColor.b
+      value: 0.043137245
+      objectReference: {fileID: 0}
+    - target: {fileID: 3147913927817626618, guid: 9f29d7c0ae7e2bc43af032e7bae5e73c, type: 3}
+      propertyPath: InitialModule.startColor.maxColor.g
+      value: 0.07883315
+      objectReference: {fileID: 0}
+    - target: {fileID: 3147913927817626618, guid: 9f29d7c0ae7e2bc43af032e7bae5e73c, type: 3}
+      propertyPath: InitialModule.startColor.maxColor.r
+      value: 0.99215686
+      objectReference: {fileID: 0}
+    - target: {fileID: 3986098142948978396, guid: 9f29d7c0ae7e2bc43af032e7bae5e73c, type: 3}
+      propertyPath: SizeModule.enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3986098142948978396, guid: 9f29d7c0ae7e2bc43af032e7bae5e73c, type: 3}
+      propertyPath: ColorModule.enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3986098142948978396, guid: 9f29d7c0ae7e2bc43af032e7bae5e73c, type: 3}
+      propertyPath: LightsModule.enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3986098142948978396, guid: 9f29d7c0ae7e2bc43af032e7bae5e73c, type: 3}
+      propertyPath: CustomDataModule.enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3986098142948978396, guid: 9f29d7c0ae7e2bc43af032e7bae5e73c, type: 3}
+      propertyPath: InitialModule.startColor.maxColor.b
+      value: 0.047468662
+      objectReference: {fileID: 0}
+    - target: {fileID: 3986098142948978396, guid: 9f29d7c0ae7e2bc43af032e7bae5e73c, type: 3}
+      propertyPath: InitialModule.startColor.maxColor.g
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3986098142948978396, guid: 9f29d7c0ae7e2bc43af032e7bae5e73c, type: 3}
+      propertyPath: InitialModule.startColor.maxColor.r
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 8916162442162648345, guid: 9f29d7c0ae7e2bc43af032e7bae5e73c, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
@@ -57,7 +97,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8916162442162648550, guid: 9f29d7c0ae7e2bc43af032e7bae5e73c, type: 3}
       propertyPath: m_Name
-      value: Sphere3
+      value: Sphere3 Variant
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9f29d7c0ae7e2bc43af032e7bae5e73c, type: 3}

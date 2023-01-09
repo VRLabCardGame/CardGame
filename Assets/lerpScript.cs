@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class lerpScript : MonoBehaviour
 {
-    float lerpTime = 2f;
+    float lerpTime = 1.5f;
     float currentLerpTime;
 
     Vector3 startPos;

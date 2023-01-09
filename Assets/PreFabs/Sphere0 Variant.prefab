@@ -7,6 +7,18 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 3147913927817626618, guid: 9f29d7c0ae7e2bc43af032e7bae5e73c, type: 3}
+      propertyPath: InitialModule.startColor.maxColor.b
+      value: 0.23879172
+      objectReference: {fileID: 0}
+    - target: {fileID: 3147913927817626618, guid: 9f29d7c0ae7e2bc43af032e7bae5e73c, type: 3}
+      propertyPath: InitialModule.startColor.maxColor.g
+      value: 0.99215686
+      objectReference: {fileID: 0}
+    - target: {fileID: 3147913927817626618, guid: 9f29d7c0ae7e2bc43af032e7bae5e73c, type: 3}
+      propertyPath: InitialModule.startColor.maxColor.r
+      value: 0.043137245
+      objectReference: {fileID: 0}
     - target: {fileID: 8916162442162648345, guid: 9f29d7c0ae7e2bc43af032e7bae5e73c, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
@@ -57,7 +69,9 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8916162442162648550, guid: 9f29d7c0ae7e2bc43af032e7bae5e73c, type: 3}
       propertyPath: m_Name
-      value: Sphere0
+      value: Sphere0 Variant
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 667084052117080168, guid: 9f29d7c0ae7e2bc43af032e7bae5e73c, type: 3}
+    - {fileID: 3986098142948978396, guid: 9f29d7c0ae7e2bc43af032e7bae5e73c, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 9f29d7c0ae7e2bc43af032e7bae5e73c, type: 3}
