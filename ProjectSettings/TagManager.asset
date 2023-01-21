@@ -10,6 +10,26 @@ TagManager:
   - ParticlesBlitz
   - ParticlesFeuer
   - ParticlesWasser
+  - atower10
+  - atower9
+  - atower8
+  - atower7
+  - atower6
+  - atower5
+  - atower4
+  - atower3
+  - atower2
+  - atower1
+  - btower10
+  - btower9
+  - btower8
+  - btower7
+  - btower6
+  - btower5
+  - btower4
+  - btower3
+  - btower2
+  - btower1
   layers:
   - Default
   - TransparentFX

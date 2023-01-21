@@ -41,10 +41,40 @@ public class GameLogic : MonoBehaviour
     bool gameEnded = false;
 
 
+
+    public GameObject[] atower1;
+    public GameObject[] atower2;
+    public GameObject[] atower3;
+    public GameObject[] atower4;
+    public GameObject[] atower5;
+    public GameObject[] atower6;
+    public GameObject[] atower7;
+    public GameObject[] atower8;
+    public GameObject[] atower9;
+    public GameObject[] atower10;
+    public GameObject[][] atower = new GameObject[10][];
+
+    public GameObject[] btower1;
+    public GameObject[] btower2;
+    public GameObject[] btower3;
+    public GameObject[] btower4;
+    public GameObject[] btower5;
+    public GameObject[] btower6;
+    public GameObject[] btower7;
+    public GameObject[] btower8;
+    public GameObject[] btower9;
+    public GameObject[] btower10;
+    public GameObject[][] btower = new GameObject[10][];
+
+    public int lifePlayer1 = 10;
+    public int lifePlayer2 = 10;
+    public int lifePlayer1new = 10;
+    public int lifePlayer2new = 10;
+
     // Start is called before the first frame update
     void Start()
     {
-        myDictionary.Add("Card1", (2, 2, 0));
+        myDictionary.Add("dog", (2, 2, 0));
         myDictionary.Add("fox", (3, 2, 2));
         myDictionary.Add("fish", (0, 0, 1));
         myDictionary.Add("fish_blue", (2,2,1));
@@ -61,12 +91,71 @@ public class GameLogic : MonoBehaviour
         myDictionary.Add("bird", (2, 2, 0));
         myDictionary.Add("bird_b", (2, 1, 0));
         myDictionary.Add("player", (0, 0, -1));
+
+
+        atower1 = GameObject.FindGameObjectsWithTag("atower1");
+        atower2 = GameObject.FindGameObjectsWithTag("atower2");
+        atower3 = GameObject.FindGameObjectsWithTag("atower3");
+        atower4 = GameObject.FindGameObjectsWithTag("atower4");
+        atower5 = GameObject.FindGameObjectsWithTag("atower5");
+        atower6 = GameObject.FindGameObjectsWithTag("atower6");
+        atower7 = GameObject.FindGameObjectsWithTag("atower7");
+        atower8 = GameObject.FindGameObjectsWithTag("atower8");
+        atower9 = GameObject.FindGameObjectsWithTag("atower9");
+        atower10 = GameObject.FindGameObjectsWithTag("atower10");
+
+        atower[0] = atower1;
+        atower[1] = atower2;
+        atower[2] = atower3;
+        atower[3] = atower4;
+        atower[4] = atower5;
+        atower[5] = atower6;
+        atower[6] = atower7;
+        atower[7] = atower8;
+        atower[8] = atower9;
+        atower[9] = atower10;
+
+        btower1 = GameObject.FindGameObjectsWithTag("btower1");
+        btower2 = GameObject.FindGameObjectsWithTag("btower2");
+        btower3 = GameObject.FindGameObjectsWithTag("btower3");
+        btower4 = GameObject.FindGameObjectsWithTag("btower4");
+        btower5 = GameObject.FindGameObjectsWithTag("btower5");
+        btower6 = GameObject.FindGameObjectsWithTag("btower6");
+        btower7 = GameObject.FindGameObjectsWithTag("btower7");
+        btower8 = GameObject.FindGameObjectsWithTag("btower8");
+        btower9 = GameObject.FindGameObjectsWithTag("btower9");
+        btower10 = GameObject.FindGameObjectsWithTag("btower10");
+
+        btower[0] = btower1;
+        btower[1] = btower2;
+        btower[2] = btower3;
+        btower[3] = btower4;
+        btower[4] = btower5;
+        btower[5] = btower6;
+        btower[6] = btower7;
+        btower[7] = btower8;
+        btower[8] = btower9;
+        btower[9] = btower10;
+
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+        if (Input.GetKeyDown(KeyCode.Space))
+        {
+            Explode(atower10);
+            Explode(atower1);
+            Explode(atower2);
+            Explode(atower3);
+            Explode(atower4);
+            Explode(atower5);
+            Explode(atower6);
+            Explode(atower7);
+            Explode(atower8);
+            Explode(atower9);
+
+        }
     }
 
     public List<int> UseElements(string Card1, string Card2)
@@ -294,7 +383,7 @@ public class GameLogic : MonoBehaviour
         {
             if (myDictionary[Card1].element == 2)
             {
-                modifs.Add(Card1, (myDictionary[Card1].attack, myDictionary[Card1].defense + 2));
+                modifs.Add(Card1, (myDictionary[Card1].defense + 2, myDictionary[Card1].defense + 2));
             }
             else
             {
@@ -302,7 +391,7 @@ public class GameLogic : MonoBehaviour
             }
             if (myDictionary[Card2].element == 2)
             {
-                modifs.Add(Card2, (myDictionary[Card2].attack, myDictionary[Card2].defense + 2));
+                modifs.Add(Card2, (myDictionary[Card1].defense + 2, myDictionary[Card2].defense + 2));
             }
             else
             {
@@ -313,7 +402,7 @@ public class GameLogic : MonoBehaviour
         {
             if (myDictionary[Card1].element == 3)
             {
-                modifs.Add(Card1, (myDictionary[Card1].attack, myDictionary[Card1].defense + 2));
+                modifs.Add(Card1, (myDictionary[Card1].defense + 2, myDictionary[Card1].defense + 2));
             }
             else
             {
@@ -321,7 +410,7 @@ public class GameLogic : MonoBehaviour
             }
             if (myDictionary[Card2].element == 3)
             {
-                modifs.Add(Card2, (myDictionary[Card2].attack, myDictionary[Card2].defense + 2));
+                modifs.Add(Card2, (myDictionary[Card1].defense + 2, myDictionary[Card2].defense + 2));
             }
             else
             {
@@ -332,7 +421,7 @@ public class GameLogic : MonoBehaviour
         {
             if (myDictionary[Card1].element == 1)
             {
-                modifs.Add(Card1, (myDictionary[Card1].attack, myDictionary[Card1].defense + 2));
+                modifs.Add(Card1, (myDictionary[Card1].defense + 2, myDictionary[Card1].defense + 2));
             }
             else
             {
@@ -340,7 +429,7 @@ public class GameLogic : MonoBehaviour
             }
             if (myDictionary[Card2].element == 1)
             {
-                modifs.Add(Card2, (myDictionary[Card2].attack, myDictionary[Card2].defense + 2));
+                modifs.Add(Card2, (myDictionary[Card1].defense + 2, myDictionary[Card2].defense + 2));
             }
             else
             {
@@ -351,7 +440,7 @@ public class GameLogic : MonoBehaviour
         {
             if (myDictionary[Card1].element == 0)
             {
-                modifs.Add(Card1, (myDictionary[Card1].attack, myDictionary[Card1].defense + 2));
+                modifs.Add(Card1, (myDictionary[Card1].defense + 2, myDictionary[Card1].defense + 2));
             }
             else
             {
@@ -359,7 +448,7 @@ public class GameLogic : MonoBehaviour
             }
             if (myDictionary[Card2].element == 0)
             {
-                modifs.Add(Card2, (myDictionary[Card2].attack, myDictionary[Card2].defense + 2));
+                modifs.Add(Card2, (myDictionary[Card1].defense + 2, myDictionary[Card2].defense + 2));
             }
             else
             {
@@ -428,22 +517,35 @@ public class GameLogic : MonoBehaviour
             go1.SendMessage("InitializeFinalPosition", CardPlayer1.transform.position);
             if (fightDictionary[Card1].attack + modifications[0] > fightDictionary[Card2].attack + modifications[1])
             {
+                
+
                 LifePlayer2.SetCurrentFill(LifePlayer2.GetCurrentFill() - (fightDictionary[Card1].attack + modifications[0] - fightDictionary[Card2].attack + modifications[1]));
                 Debug.Log("Fall 1.1");
                 CardPlayer1.SetIdle0();
-                yield return new WaitForSeconds(0.5f);
+                yield return new WaitForSeconds(0.6f);
                 CardPlayer2.SetDefense0();
+                yield return new WaitForSeconds(1.5f);
                 CardPlayer2.SetDeath0();
+
+                lifePlayer2new -= fightDictionary[Card1].attack + modifications[0] - fightDictionary[Card2].attack + modifications[1];
+                DestroyTower(false, lifePlayer2, lifePlayer2new);
+                lifePlayer2 = lifePlayer2new;
             }
             else
             {
+                
+
                 LifePlayer1.SetCurrentFill(LifePlayer1.GetCurrentFill() - (fightDictionary[Card2].attack + modifications[1] - fightDictionary[Card1].attack + modifications[0]));
                 Debug.Log("Fall 1.2");
                 CardPlayer2.SetIdle0();
-                yield return new WaitForSeconds(1.5f);
+                yield return new WaitForSeconds(0.6f);
                 CardPlayer1.SetDefense0();
                 yield return new WaitForSeconds(1.5f);
                 CardPlayer1.SetDeath0();
+
+                lifePlayer1new -= fightDictionary[Card2].attack + modifications[1] - fightDictionary[Card1].attack + modifications[0];
+                DestroyTower(false, lifePlayer1, lifePlayer1new);
+                lifePlayer1 = lifePlayer1new;
             }
         }
         else if ((CardPlayer1.transform.parent.transform.localEulerAngles.y < 45 || CardPlayer1.transform.parent.transform.localEulerAngles.y > 315 ||
@@ -466,18 +568,26 @@ public class GameLogic : MonoBehaviour
                 Debug.Log("Destroying Card2");
                 Debug.Log("Fall 2.1");
                 CardPlayer1.SetIdle0();
-                yield return new WaitForSeconds(1.2f);
+                yield return new WaitForSeconds(0.6f);
                 CardPlayer2.SetDefense0();
+                yield return new WaitForSeconds(1.5f);
                 CardPlayer2.SetDeath0();
             }
             else
             {
+                
+
                 LifePlayer1.SetCurrentFill(LifePlayer1.GetCurrentFill() - (fightDictionary[Card2].defense + modifications[1] - fightDictionary[Card1].attack + modifications[0]));
                 Debug.Log("Fall 2.2");
                 CardPlayer1.SetIdle0();
-                yield return new WaitForSeconds(1.2f);
+                yield return new WaitForSeconds(0.6f);
                 CardPlayer2.SetDefense0();
+                yield return new WaitForSeconds(1.5f);
                 CardPlayer2.SetIdle0();
+
+                lifePlayer1new -= fightDictionary[Card2].defense + modifications[1] - fightDictionary[Card1].attack + modifications[0];
+                DestroyTower(false, lifePlayer1, lifePlayer1new);
+                lifePlayer1 = lifePlayer1new;
             }
         }
         else if ((CardPlayer2.transform.parent.transform.localEulerAngles.y < 45 || CardPlayer2.transform.parent.transform.localEulerAngles.y > 315 ||
@@ -500,18 +610,26 @@ public class GameLogic : MonoBehaviour
                 Debug.Log("Destroying Card1");
                 Debug.Log("Fall 3.1");
                 CardPlayer2.SetIdle0();
-                yield return new WaitForSeconds(1.2f);
+                yield return new WaitForSeconds(0.6f);
                 CardPlayer1.SetDefense0();
+                yield return new WaitForSeconds(1.5f);
                 CardPlayer1.SetDeath0();
             }
             else
             {
+                
+
                 LifePlayer2.SetCurrentFill(LifePlayer2.GetCurrentFill() - (fightDictionary[Card1].defense + modifications[0] - fightDictionary[Card2].attack + modifications[1]));
                 Debug.Log("Fall 3.2");
                 CardPlayer2.SetIdle0();
-                yield return new WaitForSeconds(1.2f);
+                yield return new WaitForSeconds(0.6f);
                 CardPlayer1.SetDefense0();
+                yield return new WaitForSeconds(1.5f);
                 CardPlayer2.SetIdle0();
+
+                lifePlayer2new -= fightDictionary[Card1].defense + modifications[0] - fightDictionary[Card2].attack + modifications[1];
+                DestroyTower(false, lifePlayer2, lifePlayer2new);
+                lifePlayer2 = lifePlayer2new;
             }
         }
         else
@@ -527,5 +645,39 @@ public class GameLogic : MonoBehaviour
             gameEnded = true;
         }
 
+    }
+
+
+    public void DestroyTower(bool player1, int lifeBefore, int lifeAfter)
+    {
+        if(lifeAfter < 0)
+        {
+            lifeAfter = 0;
+        }
+        if (player1)
+        {
+            for(int i = lifeBefore; i >= lifeAfter; i--)
+            {
+                Explode(atower[i-1]);
+            }
+        }
+        else
+        {
+            for (int i = lifeBefore; i >= lifeAfter; i--)
+            {
+                Explode(btower[i-1]);
+            }
+        }
+    }
+
+
+    public void Explode(GameObject[] fragments)
+    {
+        foreach(GameObject fragment in fragments)
+        {
+            var rb = fragment.transform.GetComponent<Rigidbody>();
+            rb.isKinematic = false;
+            rb.AddExplosionForce(Random.Range(1, 2), fragment.transform.position, 2);
+        }
     }
 }
