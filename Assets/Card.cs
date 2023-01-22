@@ -10,7 +10,9 @@ public class Card : MonoBehaviour
     public int attack;
     public int defense;
     public int animState;
+    public int isPlayer;
 
+    bool isDead = false;
 
     // Start is called before the first frame update
     void Start()
@@ -74,9 +76,18 @@ public class Card : MonoBehaviour
     public void SetDeath0()
     {
         anim.SetTrigger("death 0");
+        isDead = true;
+        if(isPlayer == 1)
+        {
+            isDead = false;
+        }
     }
     public void SetIdle0()
     {
         anim.SetTrigger("idle 0");
+    }
+    public bool IsDead()
+    {
+        return isDead;
     }
 }

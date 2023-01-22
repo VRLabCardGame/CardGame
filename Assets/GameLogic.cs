@@ -75,7 +75,7 @@ public class GameLogic : MonoBehaviour
     void Start()
     {
         myDictionary.Add("dog", (2, 2, 0));
-        myDictionary.Add("fox", (3, 2, 2));
+        myDictionary.Add("fox", (4, 1, 2));
         myDictionary.Add("fish", (0, 0, 1));
         myDictionary.Add("fish_blue", (2,2,1));
         myDictionary.Add("turtle", (0, 4, 1));
@@ -83,7 +83,7 @@ public class GameLogic : MonoBehaviour
         myDictionary.Add("fox_b", (2, 2, 2));
         myDictionary.Add("dragon", (3, 1, 2));
         myDictionary.Add("dragon_b", (4, 0, 2));
-        myDictionary.Add("ape", (2, 2, 3));
+        myDictionary.Add("ape", (3, 2, 3));
         myDictionary.Add("ape_b", (1, 4, 3));
         myDictionary.Add("snake", (3, 0, 3));
         myDictionary.Add("snake_b", (2, 1, 3));
@@ -485,7 +485,10 @@ public class GameLogic : MonoBehaviour
             Debug.Log("Card2: " + Card2);
             CardPlayer1 = GameObject.Find(Card1).GetComponent<Card>();
             CardPlayer2 = GameObject.Find(Card2).GetComponent<Card>();
-            StartCoroutine(FightCoroutine(Card1, Card2));
+            if (!CardPlayer1.IsDead() && !CardPlayer2.IsDead())
+            {
+                StartCoroutine(FightCoroutine(Card1, Card2));
+            }
         }
     }
 
@@ -544,7 +547,7 @@ public class GameLogic : MonoBehaviour
                 CardPlayer1.SetDeath0();
 
                 lifePlayer1new -= fightDictionary[Card2].attack + modifications[1] - fightDictionary[Card1].attack + modifications[0];
-                DestroyTower(false, lifePlayer1, lifePlayer1new);
+                DestroyTower(true, lifePlayer1, lifePlayer1new);
                 lifePlayer1 = lifePlayer1new;
             }
         }
@@ -586,7 +589,7 @@ public class GameLogic : MonoBehaviour
                 CardPlayer2.SetIdle0();
 
                 lifePlayer1new -= fightDictionary[Card2].defense + modifications[1] - fightDictionary[Card1].attack + modifications[0];
-                DestroyTower(false, lifePlayer1, lifePlayer1new);
+                DestroyTower(true, lifePlayer1, lifePlayer1new);
                 lifePlayer1 = lifePlayer1new;
             }
         }
