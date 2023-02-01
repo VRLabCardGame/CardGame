@@ -71,12 +71,14 @@ public class GameLogic : MonoBehaviour
     public int lifePlayer1new = 10;
     public int lifePlayer2new = 10;
 
+    bool fightZoneLocked = false;
+
     // Start is called before the first frame update
     void Start()
     {
         myDictionary.Add("dog", (2, 2, 0));
         myDictionary.Add("fox", (4, 1, 2));
-        myDictionary.Add("fish", (0, 0, 1));
+        myDictionary.Add("fish", (1, 3, 1));
         myDictionary.Add("fish_blue", (2,2,1));
         myDictionary.Add("turtle", (0, 4, 1));
         myDictionary.Add("turtle_b", (1, 2, 1));
@@ -478,8 +480,9 @@ public class GameLogic : MonoBehaviour
 
     public void CalculateFight(string Card1,  string Card2)
     {
-        if (!gameEnded)
+        if (!gameEnded && !fightZoneLocked)
         {
+            fightZoneLocked = true;
             Debug.Log("Calculating Fight...");
             Debug.Log("Card1: " + Card1);
             Debug.Log("Card2: " + Card2);
@@ -489,6 +492,7 @@ public class GameLogic : MonoBehaviour
             {
                 StartCoroutine(FightCoroutine(Card1, Card2));
             }
+            fightZoneLocked = false;
         }
     }
 
@@ -515,6 +519,7 @@ public class GameLogic : MonoBehaviour
             GameObject go1 = Instantiate(attackParticles2, CardPlayer2.transform.position, Quaternion.identity);
             CardPlayer2.SetFight0();
             Debug.Log("Rotation passt1");
+            Debug.Log(fightDictionary[Card1] + " " + modifications[0] + ", " + fightDictionary[Card2] + " " + modifications[1]);
             yield return new WaitForSeconds(0.75f);
             go.SendMessage("InitializeFinalPosition", CardPlayer2.transform.position);
             go1.SendMessage("InitializeFinalPosition", CardPlayer1.transform.position);
@@ -522,7 +527,7 @@ public class GameLogic : MonoBehaviour
             {
                 
 
-                LifePlayer2.SetCurrentFill(LifePlayer2.GetCurrentFill() - (fightDictionary[Card1].attack + modifications[0] - fightDictionary[Card2].attack + modifications[1]));
+                LifePlayer2.SetCurrentFill(LifePlayer2.GetCurrentFill() - ((fightDictionary[Card1].attack + modifications[0]) - (fightDictionary[Card2].attack + modifications[1])));
                 Debug.Log("Fall 1.1");
                 CardPlayer1.SetIdle0();
                 yield return new WaitForSeconds(0.6f);
@@ -530,15 +535,16 @@ public class GameLogic : MonoBehaviour
                 yield return new WaitForSeconds(1.5f);
                 CardPlayer2.SetDeath0();
 
-                lifePlayer2new -= fightDictionary[Card1].attack + modifications[0] - fightDictionary[Card2].attack + modifications[1];
+                lifePlayer2new = lifePlayer2new - ((fightDictionary[Card1].attack + modifications[0]) - (fightDictionary[Card2].attack + modifications[1]));
                 DestroyTower(false, lifePlayer2, lifePlayer2new);
+                Debug.Log(lifePlayer2 + " " + lifePlayer2new);
                 lifePlayer2 = lifePlayer2new;
             }
             else
             {
                 
 
-                LifePlayer1.SetCurrentFill(LifePlayer1.GetCurrentFill() - (fightDictionary[Card2].attack + modifications[1] - fightDictionary[Card1].attack + modifications[0]));
+                LifePlayer1.SetCurrentFill(LifePlayer1.GetCurrentFill() - ((fightDictionary[Card2].attack + modifications[1]) - (fightDictionary[Card1].attack + modifications[0])));
                 Debug.Log("Fall 1.2");
                 CardPlayer2.SetIdle0();
                 yield return new WaitForSeconds(0.6f);
@@ -546,8 +552,9 @@ public class GameLogic : MonoBehaviour
                 yield return new WaitForSeconds(1.5f);
                 CardPlayer1.SetDeath0();
 
-                lifePlayer1new -= fightDictionary[Card2].attack + modifications[1] - fightDictionary[Card1].attack + modifications[0];
+                lifePlayer1new -= ((fightDictionary[Card2].attack + modifications[1]) - (fightDictionary[Card1].attack + modifications[0]));
                 DestroyTower(true, lifePlayer1, lifePlayer1new);
+                Debug.Log(lifePlayer1 +" " + lifePlayer1new);
                 lifePlayer1 = lifePlayer1new;
             }
         }
@@ -580,7 +587,7 @@ public class GameLogic : MonoBehaviour
             {
                 
 
-                LifePlayer1.SetCurrentFill(LifePlayer1.GetCurrentFill() - (fightDictionary[Card2].defense + modifications[1] - fightDictionary[Card1].attack + modifications[0]));
+                LifePlayer1.SetCurrentFill(LifePlayer1.GetCurrentFill() - ((fightDictionary[Card2].defense + modifications[1]) - (fightDictionary[Card1].attack + modifications[0])));
                 Debug.Log("Fall 2.2");
                 CardPlayer1.SetIdle0();
                 yield return new WaitForSeconds(0.6f);
@@ -588,7 +595,7 @@ public class GameLogic : MonoBehaviour
                 yield return new WaitForSeconds(1.5f);
                 CardPlayer2.SetIdle0();
 
-                lifePlayer1new -= fightDictionary[Card2].defense + modifications[1] - fightDictionary[Card1].attack + modifications[0];
+                lifePlayer1new -= ((fightDictionary[Card2].defense + modifications[1]) - (fightDictionary[Card1].attack + modifications[0]));
                 DestroyTower(true, lifePlayer1, lifePlayer1new);
                 lifePlayer1 = lifePlayer1new;
             }
@@ -622,7 +629,7 @@ public class GameLogic : MonoBehaviour
             {
                 
 
-                LifePlayer2.SetCurrentFill(LifePlayer2.GetCurrentFill() - (fightDictionary[Card1].defense + modifications[0] - fightDictionary[Card2].attack + modifications[1]));
+                LifePlayer2.SetCurrentFill(LifePlayer2.GetCurrentFill() - ((fightDictionary[Card1].defense + modifications[0]) - (fightDictionary[Card2].attack + modifications[1])));
                 Debug.Log("Fall 3.2");
                 CardPlayer2.SetIdle0();
                 yield return new WaitForSeconds(0.6f);
@@ -630,7 +637,7 @@ public class GameLogic : MonoBehaviour
                 yield return new WaitForSeconds(1.5f);
                 CardPlayer2.SetIdle0();
 
-                lifePlayer2new -= fightDictionary[Card1].defense + modifications[0] - fightDictionary[Card2].attack + modifications[1];
+                lifePlayer2new -= ((fightDictionary[Card1].defense + modifications[0]) - (fightDictionary[Card2].attack + modifications[1]));
                 DestroyTower(false, lifePlayer2, lifePlayer2new);
                 lifePlayer2 = lifePlayer2new;
             }

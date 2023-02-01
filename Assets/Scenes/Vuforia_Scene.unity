@@ -2162,8 +2162,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   mObserverBehaviour: {fileID: 84066743}
   mHiddenRoot: {fileID: 0}
-  mTargetName: Zauber9
-  mDatasetName: Vuforia/HL_CardGame_Cards.xml
+  mTargetName: Spielfeld_small
+  mDatasetName: Vuforia/HL_CardGame_ImageTargets.xml
   mCastedBehaviour: {fileID: 84066743}
   mMeshFilter: {fileID: 0}
   mMeshRenderer: {fileID: 0}
@@ -2225,13 +2225,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   PreviewVisible: 1
   RuntimeOcclusion: 0
-  mTrackableName: Zauber9
+  mTrackableName: Spielfeld_small
   mInitializedInEditor: 1
-  mDataSetPath: Vuforia/HL_CardGame_Cards.xml
-  mAspectRatio: 1.5600001
+  mDataSetPath: Vuforia/HL_CardGame_ImageTargets.xml
+  mAspectRatio: 1.5202
   mImageTargetType: 0
-  mWidth: 0.1
-  mHeight: 0.156
+  mWidth: 0.2
+  mHeight: 0.30404
   mRuntimeTexture: {fileID: 0}
   mMotionHint: 1
   mTrackingOptimization: 0
@@ -2813,6 +2813,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: Blitz_simple
       objectReference: {fileID: 0}
+    - target: {fileID: 2878732344861972232, guid: 4bb140ed75d44e64abfc45a4a2c07be1, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 7286dcf910dcdfa41bfb6586d67d7def, type: 2}
+    - target: {fileID: 5428079024845493009, guid: 4bb140ed75d44e64abfc45a4a2c07be1, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 7286dcf910dcdfa41bfb6586d67d7def, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4bb140ed75d44e64abfc45a4a2c07be1, type: 3}
 --- !u!4 &108031363 stripped
@@ -3457,6 +3465,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: Blitz_simple
       objectReference: {fileID: 0}
+    - target: {fileID: 2878732344861972232, guid: 4bb140ed75d44e64abfc45a4a2c07be1, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 7286dcf910dcdfa41bfb6586d67d7def, type: 2}
+    - target: {fileID: 5428079024845493009, guid: 4bb140ed75d44e64abfc45a4a2c07be1, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 7286dcf910dcdfa41bfb6586d67d7def, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4bb140ed75d44e64abfc45a4a2c07be1, type: 3}
 --- !u!4 &123154073 stripped
@@ -4557,6 +4573,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: Blitz_simple
       objectReference: {fileID: 0}
+    - target: {fileID: 2878732344861972232, guid: 4bb140ed75d44e64abfc45a4a2c07be1, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 7286dcf910dcdfa41bfb6586d67d7def, type: 2}
+    - target: {fileID: 5428079024845493009, guid: 4bb140ed75d44e64abfc45a4a2c07be1, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 7286dcf910dcdfa41bfb6586d67d7def, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4bb140ed75d44e64abfc45a4a2c07be1, type: 3}
 --- !u!4 &154178490 stripped
@@ -6761,8 +6785,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   mObserverBehaviour: {fileID: 250408035}
   mHiddenRoot: {fileID: 0}
-  mTargetName: Zauber11
-  mDatasetName: Vuforia/HL_CardGame_Cards.xml
+  mTargetName: Swap_Values
+  mDatasetName: Vuforia/HL_CardGame_ImageTargets.xml
   mCastedBehaviour: {fileID: 250408035}
   mMeshFilter: {fileID: 0}
   mMeshRenderer: {fileID: 0}
@@ -6824,9 +6848,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   PreviewVisible: 1
   RuntimeOcclusion: 0
-  mTrackableName: Zauber11
+  mTrackableName: Swap_Values
   mInitializedInEditor: 1
-  mDataSetPath: Vuforia/HL_CardGame_Cards.xml
+  mDataSetPath: Vuforia/HL_CardGame_ImageTargets.xml
   mAspectRatio: 1.5600001
   mImageTargetType: 0
   mWidth: 0.1
@@ -7139,6 +7163,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -7511558181221131132, guid: e23f8ebaff6b1664d8ff1aa9649387d5, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 6b0ba6b13937b914991165be9b8d039d, type: 2}
     - target: {fileID: 919132149155446097, guid: e23f8ebaff6b1664d8ff1aa9649387d5, type: 3}
       propertyPath: m_Name
       value: Wasser_simple
@@ -7759,6 +7787,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -7511558181221131132, guid: 6aa59132e9622a74da28dd2733cd0382, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: acef6819ea590cb4bb8214b8420b0c6b, type: 2}
     - target: {fileID: 919132149155446097, guid: 6aa59132e9622a74da28dd2733cd0382, type: 3}
       propertyPath: m_Name
       value: Natur_simple
@@ -11870,8 +11902,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   mObserverBehaviour: {fileID: 445043401}
   mHiddenRoot: {fileID: 0}
-  mTargetName: Zauber7
-  mDatasetName: Vuforia/HL_CardGame_Cards.xml
+  mTargetName: DEF_Wasser
+  mDatasetName: Vuforia/HL_CardGame_ImageTargets.xml
   mCastedBehaviour: {fileID: 445043401}
   mMeshFilter: {fileID: 0}
   mMeshRenderer: {fileID: 0}
@@ -11933,9 +11965,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   PreviewVisible: 1
   RuntimeOcclusion: 0
-  mTrackableName: Zauber7
+  mTrackableName: DEF_Wasser
   mInitializedInEditor: 1
-  mDataSetPath: Vuforia/HL_CardGame_Cards.xml
+  mDataSetPath: Vuforia/HL_CardGame_ImageTargets.xml
   mAspectRatio: 1.5600001
   mImageTargetType: 0
   mWidth: 0.1
@@ -11994,8 +12026,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   mObserverBehaviour: {fileID: 445449574}
   mHiddenRoot: {fileID: 0}
-  mTargetName: Zauber11
-  mDatasetName: Vuforia/HL_CardGame_Cards.xml
+  mTargetName: Draw_2
+  mDatasetName: Vuforia/HL_CardGame_ImageTargets.xml
   mCastedBehaviour: {fileID: 445449574}
   mMeshFilter: {fileID: 0}
   mMeshRenderer: {fileID: 0}
@@ -12057,9 +12089,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   PreviewVisible: 1
   RuntimeOcclusion: 0
-  mTrackableName: Zauber11
+  mTrackableName: Draw_2
   mInitializedInEditor: 1
-  mDataSetPath: Vuforia/HL_CardGame_Cards.xml
+  mDataSetPath: Vuforia/HL_CardGame_ImageTargets.xml
   mAspectRatio: 1.5600001
   mImageTargetType: 0
   mWidth: 0.1
@@ -12308,8 +12340,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   mObserverBehaviour: {fileID: 467176368}
   mHiddenRoot: {fileID: 0}
-  mTargetName: Zauber10
-  mDatasetName: Vuforia/HL_CardGame_Cards.xml
+  mTargetName: Swap_Elements
+  mDatasetName: Vuforia/HL_CardGame_ImageTargets.xml
   mCastedBehaviour: {fileID: 467176368}
   mMeshFilter: {fileID: 0}
   mMeshRenderer: {fileID: 0}
@@ -12371,9 +12403,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   PreviewVisible: 1
   RuntimeOcclusion: 0
-  mTrackableName: Zauber10
+  mTrackableName: Swap_Elements
   mInitializedInEditor: 1
-  mDataSetPath: Vuforia/HL_CardGame_Cards.xml
+  mDataSetPath: Vuforia/HL_CardGame_ImageTargets.xml
   mAspectRatio: 1.5600001
   mImageTargetType: 0
   mWidth: 0.1
@@ -13246,7 +13278,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 495870047}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.376, y: 0.1, z: 0}
+  m_LocalPosition: {x: -0.376, y: 0.1, z: -0.138}
   m_LocalScale: {x: 0.015, y: 0.015, z: 0.015}
   m_Children:
   - {fileID: 1107404079}
@@ -14726,6 +14758,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -7511558181221131132, guid: e23f8ebaff6b1664d8ff1aa9649387d5, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 6b0ba6b13937b914991165be9b8d039d, type: 2}
     - target: {fileID: 919132149155446097, guid: e23f8ebaff6b1664d8ff1aa9649387d5, type: 3}
       propertyPath: m_Name
       value: Wasser_simple
@@ -15101,8 +15137,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   mObserverBehaviour: {fileID: 546089270}
   mHiddenRoot: {fileID: 0}
-  mTargetName: Zauber6
-  mDatasetName: Vuforia/HL_CardGame_Cards.xml
+  mTargetName: _Turtle1
+  mDatasetName: Vuforia/HL_CardGame_ImageTargets.xml
   mCastedBehaviour: {fileID: 546089270}
   mMeshFilter: {fileID: 0}
   mMeshRenderer: {fileID: 0}
@@ -15164,9 +15200,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   PreviewVisible: 1
   RuntimeOcclusion: 0
-  mTrackableName: Zauber6
+  mTrackableName: _Turtle1
   mInitializedInEditor: 1
-  mDataSetPath: Vuforia/HL_CardGame_Cards.xml
+  mDataSetPath: Vuforia/HL_CardGame_ImageTargets.xml
   mAspectRatio: 1.5600001
   mImageTargetType: 0
   mWidth: 0.1
@@ -16199,8 +16235,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   mObserverBehaviour: {fileID: 580630960}
   mHiddenRoot: {fileID: 0}
-  mTargetName: --- EMPTY ---
-  mDatasetName: Vuforia/--- EMPTY ---.xml
+  mTargetName: DEF_Natur
+  mDatasetName: Vuforia/HL_CardGame_ImageTargets.xml
   mCastedBehaviour: {fileID: 580630960}
   mMeshFilter: {fileID: 0}
   mMeshRenderer: {fileID: 0}
@@ -16262,13 +16298,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   PreviewVisible: 1
   RuntimeOcclusion: 0
-  mTrackableName: --- EMPTY ---
+  mTrackableName: DEF_Natur
   mInitializedInEditor: 1
-  mDataSetPath: Vuforia/--- EMPTY ---.xml
-  mAspectRatio: 1
+  mDataSetPath: Vuforia/HL_CardGame_ImageTargets.xml
+  mAspectRatio: 1.5600001
   mImageTargetType: 0
-  mWidth: 0.2
-  mHeight: 0.2
+  mWidth: 0.1
+  mHeight: 0.156
   mRuntimeTexture: {fileID: 0}
   mMotionHint: 1
   mTrackingOptimization: 0
@@ -17535,8 +17571,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   mObserverBehaviour: {fileID: 651932741}
   mHiddenRoot: {fileID: 0}
-  mTargetName: Zauber6
-  mDatasetName: Vuforia/HL_CardGame_Cards.xml
+  mTargetName: _Fish2
+  mDatasetName: Vuforia/HL_CardGame_ImageTargets.xml
   mCastedBehaviour: {fileID: 651932741}
   mMeshFilter: {fileID: 0}
   mMeshRenderer: {fileID: 0}
@@ -17598,9 +17634,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   PreviewVisible: 1
   RuntimeOcclusion: 0
-  mTrackableName: Zauber6
+  mTrackableName: _Fish2
   mInitializedInEditor: 1
-  mDataSetPath: Vuforia/HL_CardGame_Cards.xml
+  mDataSetPath: Vuforia/HL_CardGame_ImageTargets.xml
   mAspectRatio: 1.5600001
   mImageTargetType: 0
   mWidth: 0.1
@@ -18914,8 +18950,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   mObserverBehaviour: {fileID: 732657809}
   mHiddenRoot: {fileID: 0}
-  mTargetName: Zauber8
-  mDatasetName: Vuforia/HL_CardGame_Cards.xml
+  mTargetName: _Snake1
+  mDatasetName: Vuforia/HL_CardGame_ImageTargets.xml
   mCastedBehaviour: {fileID: 732657809}
   mMeshFilter: {fileID: 0}
   mMeshRenderer: {fileID: 0}
@@ -18977,9 +19013,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   PreviewVisible: 1
   RuntimeOcclusion: 0
-  mTrackableName: Zauber8
+  mTrackableName: _Snake1
   mInitializedInEditor: 1
-  mDataSetPath: Vuforia/HL_CardGame_Cards.xml
+  mDataSetPath: Vuforia/HL_CardGame_ImageTargets.xml
   mAspectRatio: 1.5600001
   mImageTargetType: 0
   mWidth: 0.1
@@ -22173,6 +22209,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: Blitz_simple (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 2878732344861972232, guid: 4bb140ed75d44e64abfc45a4a2c07be1, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 7286dcf910dcdfa41bfb6586d67d7def, type: 2}
+    - target: {fileID: 5428079024845493009, guid: 4bb140ed75d44e64abfc45a4a2c07be1, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 7286dcf910dcdfa41bfb6586d67d7def, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4bb140ed75d44e64abfc45a4a2c07be1, type: 3}
 --- !u!4 &839422151 stripped
@@ -22967,8 +23011,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   mObserverBehaviour: {fileID: 849688152}
   mHiddenRoot: {fileID: 0}
-  mTargetName: Zauber5
-  mDatasetName: Vuforia/HL_CardGame_Cards.xml
+  mTargetName: _Bird1
+  mDatasetName: Vuforia/HL_CardGame_ImageTargets.xml
   mCastedBehaviour: {fileID: 849688152}
   mMeshFilter: {fileID: 0}
   mMeshRenderer: {fileID: 0}
@@ -23030,9 +23074,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   PreviewVisible: 1
   RuntimeOcclusion: 0
-  mTrackableName: Zauber5
+  mTrackableName: _Bird1
   mInitializedInEditor: 1
-  mDataSetPath: Vuforia/HL_CardGame_Cards.xml
+  mDataSetPath: Vuforia/HL_CardGame_ImageTargets.xml
   mAspectRatio: 1.5600001
   mImageTargetType: 0
   mWidth: 0.1
@@ -23953,7 +23997,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 886177874}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.373, y: 0.1, z: 0}
+  m_LocalPosition: {x: 0.373, y: 0.1, z: 0.138}
   m_LocalScale: {x: 0.015, y: 0.015, z: 0.015}
   m_Children:
   - {fileID: 177754672}
@@ -24539,8 +24583,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   mObserverBehaviour: {fileID: 903051328}
   mHiddenRoot: {fileID: 0}
-  mTargetName: Zauber6
-  mDatasetName: Vuforia/HL_CardGame_Cards.xml
+  mTargetName: Spieler
+  mDatasetName: Vuforia/HL_CardGame_ImageTargets.xml
   mCastedBehaviour: {fileID: 903051328}
   mMeshFilter: {fileID: 0}
   mMeshRenderer: {fileID: 0}
@@ -24602,9 +24646,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   PreviewVisible: 1
   RuntimeOcclusion: 0
-  mTrackableName: Zauber6
+  mTrackableName: Spieler
   mInitializedInEditor: 1
-  mDataSetPath: Vuforia/HL_CardGame_Cards.xml
+  mDataSetPath: Vuforia/HL_CardGame_ImageTargets.xml
   mAspectRatio: 1.5600001
   mImageTargetType: 0
   mWidth: 0.1
@@ -27132,8 +27176,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   mObserverBehaviour: {fileID: 1005977385}
   mHiddenRoot: {fileID: 0}
-  mTargetName: --- EMPTY ---
-  mDatasetName: Vuforia/--- EMPTY ---.xml
+  mTargetName: _Dog1
+  mDatasetName: Vuforia/HL_CardGame_ImageTargets.xml
   mCastedBehaviour: {fileID: 1005977385}
   mMeshFilter: {fileID: 0}
   mMeshRenderer: {fileID: 0}
@@ -27195,13 +27239,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   PreviewVisible: 1
   RuntimeOcclusion: 0
-  mTrackableName: --- EMPTY ---
+  mTrackableName: _Dog1
   mInitializedInEditor: 1
-  mDataSetPath: Vuforia/--- EMPTY ---.xml
-  mAspectRatio: 1
+  mDataSetPath: Vuforia/HL_CardGame_ImageTargets.xml
+  mAspectRatio: 1.5600001
   mImageTargetType: 0
-  mWidth: 0.2
-  mHeight: 0.2
+  mWidth: 0.1
+  mHeight: 0.156
   mRuntimeTexture: {fileID: 0}
   mMotionHint: 1
   mTrackingOptimization: 0
@@ -27669,8 +27713,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   mObserverBehaviour: {fileID: 1024371149}
   mHiddenRoot: {fileID: 0}
-  mTargetName: Zauber4
-  mDatasetName: Vuforia/HL_CardGame_Cards.xml
+  mTargetName: _Dog2
+  mDatasetName: Vuforia/HL_CardGame_ImageTargets.xml
   mCastedBehaviour: {fileID: 1024371149}
   mMeshFilter: {fileID: 0}
   mMeshRenderer: {fileID: 0}
@@ -27732,9 +27776,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   PreviewVisible: 1
   RuntimeOcclusion: 0
-  mTrackableName: Zauber4
+  mTrackableName: _Dog2
   mInitializedInEditor: 1
-  mDataSetPath: Vuforia/HL_CardGame_Cards.xml
+  mDataSetPath: Vuforia/HL_CardGame_ImageTargets.xml
   mAspectRatio: 1.5600001
   mImageTargetType: 0
   mWidth: 0.1
@@ -28915,8 +28959,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   mObserverBehaviour: {fileID: 1068652458}
   mHiddenRoot: {fileID: 0}
-  mTargetName: Zauber3
-  mDatasetName: Vuforia/HL_CardGame_Cards.xml
+  mTargetName: ATK_Wasser
+  mDatasetName: Vuforia/HL_CardGame_ImageTargets.xml
   mCastedBehaviour: {fileID: 1068652458}
   mMeshFilter: {fileID: 0}
   mMeshRenderer: {fileID: 0}
@@ -28978,9 +29022,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   PreviewVisible: 1
   RuntimeOcclusion: 0
-  mTrackableName: Zauber3
+  mTrackableName: ATK_Wasser
   mInitializedInEditor: 1
-  mDataSetPath: Vuforia/HL_CardGame_Cards.xml
+  mDataSetPath: Vuforia/HL_CardGame_ImageTargets.xml
   mAspectRatio: 1.5600001
   mImageTargetType: 0
   mWidth: 0.1
@@ -32405,8 +32449,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   mObserverBehaviour: {fileID: 1153975119}
   mHiddenRoot: {fileID: 0}
-  mTargetName: Zauber0
-  mDatasetName: Vuforia/HL_CardGame_Cards.xml
+  mTargetName: ATK_Blitz
+  mDatasetName: Vuforia/HL_CardGame_ImageTargets.xml
   mCastedBehaviour: {fileID: 1153975119}
   mMeshFilter: {fileID: 0}
   mMeshRenderer: {fileID: 0}
@@ -32468,9 +32512,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   PreviewVisible: 1
   RuntimeOcclusion: 0
-  mTrackableName: Zauber0
+  mTrackableName: ATK_Blitz
   mInitializedInEditor: 1
-  mDataSetPath: Vuforia/HL_CardGame_Cards.xml
+  mDataSetPath: Vuforia/HL_CardGame_ImageTargets.xml
   mAspectRatio: 1.5600001
   mImageTargetType: 0
   mWidth: 0.1
@@ -35265,8 +35309,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   mObserverBehaviour: {fileID: 1248294457}
   mHiddenRoot: {fileID: 0}
-  mTargetName: Monster100
-  mDatasetName: Vuforia/HL_CardGame_Cards.xml
+  mTargetName: _Monkey1
+  mDatasetName: Vuforia/HL_CardGame_ImageTargets.xml
   mCastedBehaviour: {fileID: 1248294457}
   mMeshFilter: {fileID: 0}
   mMeshRenderer: {fileID: 0}
@@ -35328,9 +35372,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   PreviewVisible: 1
   RuntimeOcclusion: 0
-  mTrackableName: Monster100
+  mTrackableName: _Monkey1
   mInitializedInEditor: 1
-  mDataSetPath: Vuforia/HL_CardGame_Cards.xml
+  mDataSetPath: Vuforia/HL_CardGame_ImageTargets.xml
   mAspectRatio: 1.5600001
   mImageTargetType: 0
   mWidth: 0.1
@@ -36968,6 +37012,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -7511558181221131132, guid: e23f8ebaff6b1664d8ff1aa9649387d5, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 6b0ba6b13937b914991165be9b8d039d, type: 2}
     - target: {fileID: 919132149155446097, guid: e23f8ebaff6b1664d8ff1aa9649387d5, type: 3}
       propertyPath: m_Name
       value: Wasser_simple
@@ -37826,6 +37874,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -7511558181221131132, guid: 2c0937a88df92f24097d492003ed0c02, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 904e716034e01db419d28c3facfb48fe, type: 2}
     - target: {fileID: 919132149155446097, guid: 2c0937a88df92f24097d492003ed0c02, type: 3}
       propertyPath: m_Name
       value: Feuer_simple
@@ -38128,6 +38180,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -7511558181221131132, guid: 6aa59132e9622a74da28dd2733cd0382, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: acef6819ea590cb4bb8214b8420b0c6b, type: 2}
     - target: {fileID: 919132149155446097, guid: 6aa59132e9622a74da28dd2733cd0382, type: 3}
       propertyPath: m_Name
       value: Natur_simple
@@ -40226,8 +40282,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   mObserverBehaviour: {fileID: 1434957801}
   mHiddenRoot: {fileID: 0}
-  mTargetName: Zauber6
-  mDatasetName: Vuforia/HL_CardGame_Cards.xml
+  mTargetName: _Turtle2
+  mDatasetName: Vuforia/HL_CardGame_ImageTargets.xml
   mCastedBehaviour: {fileID: 1434957801}
   mMeshFilter: {fileID: 0}
   mMeshRenderer: {fileID: 0}
@@ -40289,9 +40345,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   PreviewVisible: 1
   RuntimeOcclusion: 0
-  mTrackableName: Zauber6
+  mTrackableName: _Turtle2
   mInitializedInEditor: 1
-  mDataSetPath: Vuforia/HL_CardGame_Cards.xml
+  mDataSetPath: Vuforia/HL_CardGame_ImageTargets.xml
   mAspectRatio: 1.5600001
   mImageTargetType: 0
   mWidth: 0.1
@@ -41395,8 +41451,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   mObserverBehaviour: {fileID: 1471656153}
   mHiddenRoot: {fileID: 0}
-  mTargetName: --- EMPTY ---
-  mDatasetName: Vuforia/--- EMPTY ---.xml
+  mTargetName: _Snake2
+  mDatasetName: Vuforia/HL_CardGame_ImageTargets.xml
   mCastedBehaviour: {fileID: 1471656153}
   mMeshFilter: {fileID: 0}
   mMeshRenderer: {fileID: 0}
@@ -41458,13 +41514,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   PreviewVisible: 1
   RuntimeOcclusion: 0
-  mTrackableName: --- EMPTY ---
+  mTrackableName: _Snake2
   mInitializedInEditor: 1
-  mDataSetPath: Vuforia/--- EMPTY ---.xml
-  mAspectRatio: 1
+  mDataSetPath: Vuforia/HL_CardGame_ImageTargets.xml
+  mAspectRatio: 1.5600001
   mImageTargetType: 0
-  mWidth: 0.2
-  mHeight: 0.2
+  mWidth: 0.1
+  mHeight: 0.156
   mRuntimeTexture: {fileID: 0}
   mMotionHint: 1
   mTrackingOptimization: 0
@@ -41888,6 +41944,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -7511558181221131132, guid: e23f8ebaff6b1664d8ff1aa9649387d5, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 6b0ba6b13937b914991165be9b8d039d, type: 2}
     - target: {fileID: 919132149155446097, guid: e23f8ebaff6b1664d8ff1aa9649387d5, type: 3}
       propertyPath: m_Name
       value: Wasser_simple
@@ -43729,8 +43789,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   mObserverBehaviour: {fileID: 1546144095}
   mHiddenRoot: {fileID: 0}
-  mTargetName: --- EMPTY ---
-  mDatasetName: Vuforia/--- EMPTY ---.xml
+  mTargetName: ATK_Feuer
+  mDatasetName: Vuforia/HL_CardGame_ImageTargets.xml
   mCastedBehaviour: {fileID: 1546144095}
   mMeshFilter: {fileID: 0}
   mMeshRenderer: {fileID: 0}
@@ -43792,13 +43852,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   PreviewVisible: 1
   RuntimeOcclusion: 0
-  mTrackableName: --- EMPTY ---
+  mTrackableName: ATK_Feuer
   mInitializedInEditor: 1
-  mDataSetPath: Vuforia/--- EMPTY ---.xml
-  mAspectRatio: 1
+  mDataSetPath: Vuforia/HL_CardGame_ImageTargets.xml
+  mAspectRatio: 1.5600001
   mImageTargetType: 0
-  mWidth: 0.2
-  mHeight: 0.2
+  mWidth: 0.1
+  mHeight: 0.156
   mRuntimeTexture: {fileID: 0}
   mMotionHint: 1
   mTrackingOptimization: 0
@@ -43967,8 +44027,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   mObserverBehaviour: {fileID: 1548017367}
   mHiddenRoot: {fileID: 0}
-  mTargetName: Zauber11
-  mDatasetName: Vuforia/HL_CardGame_Cards.xml
+  mTargetName: _Bird2
+  mDatasetName: Vuforia/HL_CardGame_ImageTargets.xml
   mCastedBehaviour: {fileID: 1548017367}
   mMeshFilter: {fileID: 0}
   mMeshRenderer: {fileID: 0}
@@ -44030,9 +44090,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   PreviewVisible: 1
   RuntimeOcclusion: 0
-  mTrackableName: Zauber11
+  mTrackableName: _Bird2
   mInitializedInEditor: 1
-  mDataSetPath: Vuforia/HL_CardGame_Cards.xml
+  mDataSetPath: Vuforia/HL_CardGame_ImageTargets.xml
   mAspectRatio: 1.5600001
   mImageTargetType: 0
   mWidth: 0.1
@@ -44206,8 +44266,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   mObserverBehaviour: {fileID: 1554179090}
   mHiddenRoot: {fileID: 0}
-  mTargetName: --- EMPTY ---
-  mDatasetName: Vuforia/--- EMPTY ---.xml
+  mTargetName: _Monkey2
+  mDatasetName: Vuforia/HL_CardGame_ImageTargets.xml
   mCastedBehaviour: {fileID: 1554179090}
   mMeshFilter: {fileID: 0}
   mMeshRenderer: {fileID: 0}
@@ -44269,13 +44329,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   PreviewVisible: 1
   RuntimeOcclusion: 0
-  mTrackableName: --- EMPTY ---
+  mTrackableName: _Monkey2
   mInitializedInEditor: 1
-  mDataSetPath: Vuforia/--- EMPTY ---.xml
-  mAspectRatio: 1
+  mDataSetPath: Vuforia/HL_CardGame_ImageTargets.xml
+  mAspectRatio: 1.5600001
   mImageTargetType: 0
-  mWidth: 0.2
-  mHeight: 0.2
+  mWidth: 0.1
+  mHeight: 0.156
   mRuntimeTexture: {fileID: 0}
   mMotionHint: 1
   mTrackingOptimization: 0
@@ -46816,8 +46876,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   mObserverBehaviour: {fileID: 1644661358}
   mHiddenRoot: {fileID: 0}
-  mTargetName: Monster102
-  mDatasetName: Vuforia/HL_CardGame_Cards.xml
+  mTargetName: _Fox1
+  mDatasetName: Vuforia/HL_CardGame_ImageTargets.xml
   mCastedBehaviour: {fileID: 1644661358}
   mMeshFilter: {fileID: 0}
   mMeshRenderer: {fileID: 0}
@@ -46879,9 +46939,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   PreviewVisible: 1
   RuntimeOcclusion: 0
-  mTrackableName: Monster102
+  mTrackableName: _Fox1
   mInitializedInEditor: 1
-  mDataSetPath: Vuforia/HL_CardGame_Cards.xml
+  mDataSetPath: Vuforia/HL_CardGame_ImageTargets.xml
   mAspectRatio: 1.5600001
   mImageTargetType: 0
   mWidth: 0.1
@@ -47041,6 +47101,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -7511558181221131132, guid: 6aa59132e9622a74da28dd2733cd0382, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: acef6819ea590cb4bb8214b8420b0c6b, type: 2}
     - target: {fileID: 919132149155446097, guid: 6aa59132e9622a74da28dd2733cd0382, type: 3}
       propertyPath: m_Name
       value: Natur_simple
@@ -47873,8 +47937,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   mObserverBehaviour: {fileID: 1710256889}
   mHiddenRoot: {fileID: 0}
-  mTargetName: Monster101
-  mDatasetName: Vuforia/HL_CardGame_Cards.xml
+  mTargetName: _Fish1
+  mDatasetName: Vuforia/HL_CardGame_ImageTargets.xml
   mCastedBehaviour: {fileID: 1710256889}
   mMeshFilter: {fileID: 0}
   mMeshRenderer: {fileID: 0}
@@ -47936,9 +48000,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   PreviewVisible: 1
   RuntimeOcclusion: 0
-  mTrackableName: Monster101
+  mTrackableName: _Fish1
   mInitializedInEditor: 1
-  mDataSetPath: Vuforia/HL_CardGame_Cards.xml
+  mDataSetPath: Vuforia/HL_CardGame_ImageTargets.xml
   mAspectRatio: 1.5600001
   mImageTargetType: 0
   mWidth: 0.1
@@ -53149,6 +53213,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -7511558181221131132, guid: 6aa59132e9622a74da28dd2733cd0382, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: acef6819ea590cb4bb8214b8420b0c6b, type: 2}
     - target: {fileID: 919132149155446097, guid: 6aa59132e9622a74da28dd2733cd0382, type: 3}
       propertyPath: m_Name
       value: Natur_simple
@@ -53535,8 +53603,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   mObserverBehaviour: {fileID: 1933975978}
   mHiddenRoot: {fileID: 0}
-  mTargetName: Zauber11
-  mDatasetName: Vuforia/HL_CardGame_Cards.xml
+  mTargetName: DEF_Blitz
+  mDatasetName: Vuforia/HL_CardGame_ImageTargets.xml
   mCastedBehaviour: {fileID: 1933975978}
   mMeshFilter: {fileID: 0}
   mMeshRenderer: {fileID: 0}
@@ -53598,9 +53666,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   PreviewVisible: 1
   RuntimeOcclusion: 0
-  mTrackableName: Zauber11
+  mTrackableName: DEF_Blitz
   mInitializedInEditor: 1
-  mDataSetPath: Vuforia/HL_CardGame_Cards.xml
+  mDataSetPath: Vuforia/HL_CardGame_ImageTargets.xml
   mAspectRatio: 1.5600001
   mImageTargetType: 0
   mWidth: 0.1
@@ -53773,8 +53841,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   mObserverBehaviour: {fileID: 1935331424}
   mHiddenRoot: {fileID: 0}
-  mTargetName: Zauber2
-  mDatasetName: Vuforia/HL_CardGame_Cards.xml
+  mTargetName: ATK_Natur
+  mDatasetName: Vuforia/HL_CardGame_ImageTargets.xml
   mCastedBehaviour: {fileID: 1935331424}
   mMeshFilter: {fileID: 0}
   mMeshRenderer: {fileID: 0}
@@ -53836,9 +53904,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   PreviewVisible: 1
   RuntimeOcclusion: 0
-  mTrackableName: Zauber2
+  mTrackableName: ATK_Natur
   mInitializedInEditor: 1
-  mDataSetPath: Vuforia/HL_CardGame_Cards.xml
+  mDataSetPath: Vuforia/HL_CardGame_ImageTargets.xml
   mAspectRatio: 1.5600001
   mImageTargetType: 0
   mWidth: 0.1
@@ -57318,8 +57386,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   mObserverBehaviour: {fileID: 2119558841}
   mHiddenRoot: {fileID: 0}
-  mTargetName: Zauber5
-  mDatasetName: Vuforia/HL_CardGame_Cards.xml
+  mTargetName: DEF_Feuer
+  mDatasetName: Vuforia/HL_CardGame_ImageTargets.xml
   mCastedBehaviour: {fileID: 2119558841}
   mMeshFilter: {fileID: 0}
   mMeshRenderer: {fileID: 0}
@@ -57381,9 +57449,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   PreviewVisible: 1
   RuntimeOcclusion: 0
-  mTrackableName: Zauber5
+  mTrackableName: DEF_Feuer
   mInitializedInEditor: 1
-  mDataSetPath: Vuforia/HL_CardGame_Cards.xml
+  mDataSetPath: Vuforia/HL_CardGame_ImageTargets.xml
   mAspectRatio: 1.5600001
   mImageTargetType: 0
   mWidth: 0.1
