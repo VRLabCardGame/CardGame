@@ -540,6 +540,12 @@ public class GameLogic : MonoBehaviour
                 Debug.Log(lifePlayer2 + " " + lifePlayer2new);
                 lifePlayer2 = lifePlayer2new;
             }
+            else if (fightDictionary[Card1].attack + modifications[0] == fightDictionary[Card2].attack + modifications[1])
+            {
+                Debug.Log("Fall 1.3");
+                CardPlayer1.SetIdle0();
+                CardPlayer2.SetIdle0();
+            }
             else
             {
                 
@@ -668,14 +674,14 @@ public class GameLogic : MonoBehaviour
         {
             for(int i = lifeBefore; i >= lifeAfter; i--)
             {
-                Explode(atower[i-1]);
+                Explode(atower[i]); // i-1?
             }
         }
         else
         {
             for (int i = lifeBefore; i >= lifeAfter; i--)
             {
-                Explode(btower[i-1]);
+                Explode(btower[i]); // i-1?
             }
         }
     }
@@ -688,6 +694,20 @@ public class GameLogic : MonoBehaviour
             var rb = fragment.transform.GetComponent<Rigidbody>();
             rb.isKinematic = false;
             rb.AddExplosionForce(Random.Range(1, 2), fragment.transform.position, 2);
+            Destroy(fragment, 2);
+        }
+
+        //StartCoroutine(ExplodeCoroutine(fragments));
+    }
+    /*
+    IEnumerator ExplodeCoroutine(GameObject[] fragments)
+    {
+        yield return new WaitForSeconds(2.0f);
+
+        foreach (GameObject fragment in fragments)
+        {
+            fragment.
         }
     }
+    */
 }
