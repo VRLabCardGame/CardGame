@@ -76,7 +76,7 @@ public class GameLogic : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        myDictionary.Add("dog", (2, 2, 0));
+        myDictionary.Add("dog", (3, 1, 0));
         myDictionary.Add("fox", (4, 1, 2));
         myDictionary.Add("fish", (1, 3, 1));
         myDictionary.Add("fish_blue", (2,2,1));
@@ -393,7 +393,7 @@ public class GameLogic : MonoBehaviour
             }
             if (myDictionary[Card2].element == 2)
             {
-                modifs.Add(Card2, (myDictionary[Card1].defense + 2, myDictionary[Card2].defense + 2));
+                modifs.Add(Card2, (myDictionary[Card2].defense + 2, myDictionary[Card2].defense + 2));
             }
             else
             {
