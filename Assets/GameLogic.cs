@@ -672,16 +672,16 @@ public class GameLogic : MonoBehaviour
         }
         if (player1)
         {
-            for(int i = lifeBefore; i >= lifeAfter; i--)
+            for(int i = lifeBefore; i > lifeAfter; i--)
             {
-                Explode(atower[i]); // i-1?
+                Explode(atower[i-1]); // i-1?
             }
         }
         else
         {
-            for (int i = lifeBefore; i >= lifeAfter; i--)
+            for (int i = lifeBefore; i > lifeAfter; i--)
             {
-                Explode(btower[i]); // i-1?
+                Explode(btower[i-1]); // i-1?
             }
         }
     }
