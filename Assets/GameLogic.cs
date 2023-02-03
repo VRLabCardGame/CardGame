@@ -513,6 +513,8 @@ public class GameLogic : MonoBehaviour
         {
             CardPlayer1.transform.LookAt(CardPlayer2.transform.position);
             CardPlayer2.transform.LookAt(CardPlayer1.transform.position);
+            CardPlayer1.transform.rotation = Quaternion.LookRotation(CardPlayer2.transform.forward);
+            CardPlayer2.transform.rotation = Quaternion.LookRotation(CardPlayer1.transform.forward);
             yield return new WaitForSeconds(2);
             CardPlayer1.SetFight0();
             GameObject go = Instantiate(attackParticles1, CardPlayer1.transform.position, Quaternion.identity);
@@ -571,7 +573,9 @@ public class GameLogic : MonoBehaviour
             || (CardPlayer2.transform.parent.transform.localEulerAngles.y < 315 && CardPlayer2.transform.parent.transform.localEulerAngles.y > 225)))
         {
             CardPlayer1.transform.LookAt(CardPlayer2.transform.position);
-            CardPlayer2.transform.LookAt(CardPlayer1.transform.position); 
+            CardPlayer2.transform.LookAt(CardPlayer1.transform.position);
+            CardPlayer1.transform.rotation = Quaternion.LookRotation(CardPlayer2.transform.forward);
+            CardPlayer2.transform.rotation = Quaternion.LookRotation(CardPlayer1.transform.forward);
             yield return new WaitForSeconds(2);
             CardPlayer1.SetFight0();
             GameObject go = Instantiate(attackParticles1, CardPlayer1.transform.position, Quaternion.identity);
@@ -614,6 +618,8 @@ public class GameLogic : MonoBehaviour
         {
             CardPlayer1.transform.LookAt(CardPlayer2.transform.position);
             CardPlayer2.transform.LookAt(CardPlayer1.transform.position);
+            CardPlayer1.transform.rotation = Quaternion.LookRotation(CardPlayer2.transform.forward);
+            CardPlayer2.transform.rotation = Quaternion.LookRotation(CardPlayer1.transform.forward);
             yield return new WaitForSeconds(2);
 
             CardPlayer2.SetFight0();
@@ -621,7 +627,7 @@ public class GameLogic : MonoBehaviour
             Debug.Log("Rotation passt3");
             yield return new WaitForSeconds(0.75f);
             go.SendMessage("InitializeFinalPosition", CardPlayer2.transform.position);
-            if (fightDictionary[Card2].attack + modifications[0] > fightDictionary[Card1].defense + modifications[1])
+            if (fightDictionary[Card2].attack + modifications[1] > fightDictionary[Card1].defense + modifications[0])
             {
                 Debug.Log("Destroying Card1");
                 Debug.Log("Fall 3.1");
