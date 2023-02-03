@@ -501,6 +501,8 @@ public class GameLogic : MonoBehaviour
     {
         
         modifications = UseElements(Card1, Card2);
+        var Card1Object = GameObject.Find(Card1).transform.parent.gameObject;
+        var Card2Object = GameObject.Find(Card2).transform.parent.gameObject;
         Dictionary<string, (int attack, int defense)> fightDictionary = CalculateSpellCard(Card1, Card2);
         Debug.Log(CardPlayer1.transform.parent.transform.localEulerAngles.z + ", x: " + CardPlayer1.transform.parent.transform.localEulerAngles.x + ", y: " + CardPlayer1.transform.parent.transform.localEulerAngles.y);
         Debug.Log(CardPlayer2.transform.parent.transform.localEulerAngles.z + ", x2: " + CardPlayer2.transform.parent.transform.localEulerAngles.x + ", y: " + CardPlayer2.transform.parent.transform.localEulerAngles.y);
@@ -513,8 +515,8 @@ public class GameLogic : MonoBehaviour
         {
             CardPlayer1.transform.LookAt(CardPlayer2.transform.position);
             CardPlayer2.transform.LookAt(CardPlayer1.transform.position);
-            CardPlayer1.transform.rotation = Quaternion.LookRotation(CardPlayer2.transform.forward);
-            CardPlayer2.transform.rotation = Quaternion.LookRotation(CardPlayer1.transform.forward);
+            //CardPlayer1.transform.rotation = Quaternion.LookRotation(CardPlayer2.transform.forward);
+            //CardPlayer2.transform.rotation = Quaternion.LookRotation(CardPlayer1.transform.forward);
             yield return new WaitForSeconds(2);
             CardPlayer1.SetFight0();
             GameObject go = Instantiate(attackParticles1, CardPlayer1.transform.position, Quaternion.identity);
@@ -536,17 +538,22 @@ public class GameLogic : MonoBehaviour
                 CardPlayer2.SetDefense0();
                 yield return new WaitForSeconds(1.5f);
                 CardPlayer2.SetDeath0();
+                Destroy(Card2Object, 6);
 
                 lifePlayer2new = lifePlayer2new - ((fightDictionary[Card1].attack + modifications[0]) - (fightDictionary[Card2].attack + modifications[1]));
                 DestroyTower(false, lifePlayer2, lifePlayer2new);
                 Debug.Log(lifePlayer2 + " " + lifePlayer2new);
                 lifePlayer2 = lifePlayer2new;
+                yield return new WaitForSeconds(5);
+                CardPlayer2.transform.eulerAngles = new Vector3(0, 0, 0);
             }
             else if (fightDictionary[Card1].attack + modifications[0] == fightDictionary[Card2].attack + modifications[1])
             {
                 Debug.Log("Fall 1.3");
-                CardPlayer1.SetIdle0();
-                CardPlayer2.SetIdle0();
+                CardPlayer1.SetDeath0();
+                CardPlayer2.SetDeath0();
+                Destroy(Card1Object, 6);
+                Destroy(Card2Object, 6);
             }
             else
             {
@@ -558,12 +565,15 @@ public class GameLogic : MonoBehaviour
                 yield return new WaitForSeconds(0.6f);
                 CardPlayer1.SetDefense0();
                 yield return new WaitForSeconds(1.5f);
-                CardPlayer1.SetDeath0();
+                CardPlayer1.SetDeath0(); 
+                Destroy(Card1Object, 6);
 
                 lifePlayer1new -= ((fightDictionary[Card2].attack + modifications[1]) - (fightDictionary[Card1].attack + modifications[0]));
                 DestroyTower(true, lifePlayer1, lifePlayer1new);
                 Debug.Log(lifePlayer1 +" " + lifePlayer1new);
                 lifePlayer1 = lifePlayer1new;
+                yield return new WaitForSeconds(5);
+                CardPlayer2.transform.eulerAngles = new Vector3(0, 0, 0);
             }
         }
         else if ((CardPlayer1.transform.parent.transform.localEulerAngles.y < 45 || CardPlayer1.transform.parent.transform.localEulerAngles.y > 315 ||
@@ -574,8 +584,8 @@ public class GameLogic : MonoBehaviour
         {
             CardPlayer1.transform.LookAt(CardPlayer2.transform.position);
             CardPlayer2.transform.LookAt(CardPlayer1.transform.position);
-            CardPlayer1.transform.rotation = Quaternion.LookRotation(CardPlayer2.transform.forward);
-            CardPlayer2.transform.rotation = Quaternion.LookRotation(CardPlayer1.transform.forward);
+            //CardPlayer1.transform.rotation = Quaternion.LookRotation(CardPlayer2.transform.forward);
+            //CardPlayer2.transform.rotation = Quaternion.LookRotation(CardPlayer1.transform.forward);
             yield return new WaitForSeconds(2);
             CardPlayer1.SetFight0();
             GameObject go = Instantiate(attackParticles1, CardPlayer1.transform.position, Quaternion.identity);
@@ -591,7 +601,10 @@ public class GameLogic : MonoBehaviour
                 yield return new WaitForSeconds(0.6f);
                 CardPlayer2.SetDefense0();
                 yield return new WaitForSeconds(1.5f);
-                CardPlayer2.SetDeath0();
+                CardPlayer2.SetDeath0(); 
+                Destroy(Card2Object, 6);
+                yield return new WaitForSeconds(5);
+                CardPlayer1.transform.eulerAngles = new Vector3(0, 0, 0);
             }
             else
             {
@@ -608,6 +621,9 @@ public class GameLogic : MonoBehaviour
                 lifePlayer1new -= ((fightDictionary[Card2].defense + modifications[1]) - (fightDictionary[Card1].attack + modifications[0]));
                 DestroyTower(true, lifePlayer1, lifePlayer1new);
                 lifePlayer1 = lifePlayer1new;
+                yield return new WaitForSeconds(5);
+                CardPlayer1.transform.eulerAngles = new Vector3(0, 0, 0);
+                CardPlayer2.transform.eulerAngles = new Vector3(0, 0, 0);
             }
         }
         else if ((CardPlayer2.transform.parent.transform.localEulerAngles.y < 45 || CardPlayer2.transform.parent.transform.localEulerAngles.y > 315 ||
@@ -618,15 +634,15 @@ public class GameLogic : MonoBehaviour
         {
             CardPlayer1.transform.LookAt(CardPlayer2.transform.position);
             CardPlayer2.transform.LookAt(CardPlayer1.transform.position);
-            CardPlayer1.transform.rotation = Quaternion.LookRotation(CardPlayer2.transform.forward);
-            CardPlayer2.transform.rotation = Quaternion.LookRotation(CardPlayer1.transform.forward);
+            //CardPlayer1.transform.rotation = Quaternion.LookRotation(CardPlayer2.transform.forward);
+            //CardPlayer2.transform.rotation = Quaternion.LookRotation(CardPlayer1.transform.forward);
             yield return new WaitForSeconds(2);
 
             CardPlayer2.SetFight0();
             GameObject go = Instantiate(attackParticles2, CardPlayer2.transform.position, Quaternion.identity);
             Debug.Log("Rotation passt3");
             yield return new WaitForSeconds(0.75f);
-            go.SendMessage("InitializeFinalPosition", CardPlayer2.transform.position);
+            go.SendMessage("InitializeFinalPosition", CardPlayer1.transform.position);
             if (fightDictionary[Card2].attack + modifications[1] > fightDictionary[Card1].defense + modifications[0])
             {
                 Debug.Log("Destroying Card1");
@@ -636,6 +652,9 @@ public class GameLogic : MonoBehaviour
                 CardPlayer1.SetDefense0();
                 yield return new WaitForSeconds(1.5f);
                 CardPlayer1.SetDeath0();
+                Destroy(Card1Object, 3);
+                yield return new WaitForSeconds(5);
+                CardPlayer2.transform.eulerAngles = new Vector3(0, 0, 0);
             }
             else
             {
@@ -652,16 +671,16 @@ public class GameLogic : MonoBehaviour
                 lifePlayer2new -= ((fightDictionary[Card1].defense + modifications[0]) - (fightDictionary[Card2].attack + modifications[1]));
                 DestroyTower(false, lifePlayer2, lifePlayer2new);
                 lifePlayer2 = lifePlayer2new;
+                yield return new WaitForSeconds(5);
+                CardPlayer1.transform.eulerAngles = new Vector3(0, 0, 0);
+                CardPlayer2.transform.eulerAngles = new Vector3(0, 0, 0);
             }
         }
         else
         {
             Debug.Log("nichts passt :(");
         }
-        yield return new WaitForSeconds(5);
-        CardPlayer1.transform.eulerAngles = new Vector3(0, 0, 0);
-        CardPlayer2.transform.eulerAngles = new Vector3(0, 0, 0);
-
+        
         if(LifePlayer1.GetCurrentFill() <= 0 || LifePlayer2.GetCurrentFill() <= 0)
         {
             gameEnded = true;
@@ -703,17 +722,7 @@ public class GameLogic : MonoBehaviour
             Destroy(fragment, 2);
         }
 
-        //StartCoroutine(ExplodeCoroutine(fragments));
+    
     }
-    /*
-    IEnumerator ExplodeCoroutine(GameObject[] fragments)
-    {
-        yield return new WaitForSeconds(2.0f);
-
-        foreach (GameObject fragment in fragments)
-        {
-            fragment.
-        }
-    }
-    */
+    
 }
