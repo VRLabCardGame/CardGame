@@ -33,6 +33,9 @@ public class GameLogic : MonoBehaviour
     GameObject attackParticles2;
     GameObject attackParticles1;
 
+    public ParticleSystem endGameParticles1;
+    public ParticleSystem endGameParticles2;
+
     public SpellZone spellZonePlayer1;
     public SpellZone spellZonePlayer2;
 
@@ -235,6 +238,7 @@ public class GameLogic : MonoBehaviour
     void UseSpellCard(Collider other)
     {
         activeSpellCard = other.transform.name;
+
         if (activeSpellCard == "Fire+" || activeSpellCard == "FireDef+")
         {
             foreach (var gameObj in GameObject.FindGameObjectsWithTag("ParticlesFeuer"))
@@ -538,7 +542,10 @@ public class GameLogic : MonoBehaviour
                 CardPlayer2.SetDefense0();
                 yield return new WaitForSeconds(1.5f);
                 CardPlayer2.SetDeath0();
-                Destroy(Card2Object, 6);
+                if (myDictionary[Card2].element != -1)
+                {
+                    Destroy(Card2Object, 6);
+                }
 
                 lifePlayer2new = lifePlayer2new - ((fightDictionary[Card1].attack + modifications[0]) - (fightDictionary[Card2].attack + modifications[1]));
                 DestroyTower(false, lifePlayer2, lifePlayer2new);
@@ -552,8 +559,14 @@ public class GameLogic : MonoBehaviour
                 Debug.Log("Fall 1.3");
                 CardPlayer1.SetDeath0();
                 CardPlayer2.SetDeath0();
-                Destroy(Card1Object, 6);
-                Destroy(Card2Object, 6);
+                if (myDictionary[Card1].element != -1)
+                {
+                    Destroy(Card1Object, 6);
+                }
+                if (myDictionary[Card2].element != -1)
+                {
+                    Destroy(Card2Object, 6);
+                }
             }
             else
             {
@@ -565,8 +578,11 @@ public class GameLogic : MonoBehaviour
                 yield return new WaitForSeconds(0.6f);
                 CardPlayer1.SetDefense0();
                 yield return new WaitForSeconds(1.5f);
-                CardPlayer1.SetDeath0(); 
-                Destroy(Card1Object, 6);
+                CardPlayer1.SetDeath0();
+                if (myDictionary[Card1].element != -1)
+                {
+                    Destroy(Card1Object, 6);
+                }
 
                 lifePlayer1new -= ((fightDictionary[Card2].attack + modifications[1]) - (fightDictionary[Card1].attack + modifications[0]));
                 DestroyTower(true, lifePlayer1, lifePlayer1new);
@@ -601,8 +617,11 @@ public class GameLogic : MonoBehaviour
                 yield return new WaitForSeconds(0.6f);
                 CardPlayer2.SetDefense0();
                 yield return new WaitForSeconds(1.5f);
-                CardPlayer2.SetDeath0(); 
-                Destroy(Card2Object, 6);
+                CardPlayer2.SetDeath0();
+                if (myDictionary[Card2].element != -1)
+                {
+                    Destroy(Card2Object, 6);
+                }
                 yield return new WaitForSeconds(5);
                 CardPlayer1.transform.eulerAngles = new Vector3(0, 0, 0);
             }
@@ -652,7 +671,10 @@ public class GameLogic : MonoBehaviour
                 CardPlayer1.SetDefense0();
                 yield return new WaitForSeconds(1.5f);
                 CardPlayer1.SetDeath0();
-                Destroy(Card1Object, 3);
+                if (myDictionary[Card1].element != -1)
+                {
+                    Destroy(Card1Object, 3);
+                }
                 yield return new WaitForSeconds(5);
                 CardPlayer2.transform.eulerAngles = new Vector3(0, 0, 0);
             }
@@ -684,6 +706,14 @@ public class GameLogic : MonoBehaviour
         if(LifePlayer1.GetCurrentFill() <= 0 || LifePlayer2.GetCurrentFill() <= 0)
         {
             gameEnded = true;
+            if(LifePlayer1.GetCurrentFill() <= 0)
+            {
+                endGameParticles2.Play();
+            }
+            else
+            {
+                endGameParticles1.Play();
+            }
         }
 
     }
