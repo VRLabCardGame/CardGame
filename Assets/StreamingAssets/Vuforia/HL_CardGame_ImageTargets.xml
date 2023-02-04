@@ -1,6 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <QCARConfig xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="qcar_config.xsd">
   <Tracking>
+    <ImageTarget name="Spielfeld_complete" size="0.100000 0.149385" />
+    <ImageTarget name="Spielfeld" size="0.100000 0.156000" />
     <ImageTarget name="_Turtle2" size="0.100000 0.156000" />
     <ImageTarget name="_Turtle1" size="0.100000 0.156000" />
     <ImageTarget name="_Snake2" size="0.100000 0.156000" />
@@ -17,8 +19,6 @@
     <ImageTarget name="_Dog1" size="0.100000 0.156000" />
     <ImageTarget name="_Bird2" size="0.100000 0.156000" />
     <ImageTarget name="_Bird1" size="0.100000 0.156000" />
-    <ImageTarget name="Spielfeld_big" size="0.500000 0.750000" />
-    <ImageTarget name="Spielfeld_small" size="0.200000 0.304040" />
     <ImageTarget name="Swap_Values" size="0.100000 0.156000" />
     <ImageTarget name="Swap_Elements" size="0.100000 0.156000" />
     <ImageTarget name="Draw_2" size="0.100000 0.156000" />

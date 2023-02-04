@@ -486,7 +486,7 @@ public class GameLogic : MonoBehaviour
     {
         if (!gameEnded && !fightZoneLocked)
         {
-            fightZoneLocked = true;
+            
             Debug.Log("Calculating Fight...");
             Debug.Log("Card1: " + Card1);
             Debug.Log("Card2: " + Card2);
@@ -496,14 +496,13 @@ public class GameLogic : MonoBehaviour
             {
                 StartCoroutine(FightCoroutine(Card1, Card2));
             }
-            fightZoneLocked = false;
         }
     }
 
     
     IEnumerator FightCoroutine(string Card1, string Card2)
     {
-        
+        fightZoneLocked = true;
         modifications = UseElements(Card1, Card2);
         var Card1Object = GameObject.Find(Card1).transform.parent.gameObject;
         var Card2Object = GameObject.Find(Card2).transform.parent.gameObject;
@@ -715,6 +714,8 @@ public class GameLogic : MonoBehaviour
                 endGameParticles1.Play();
             }
         }
+        fightZoneLocked = false;
+
 
     }
 
