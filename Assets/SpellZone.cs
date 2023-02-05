@@ -22,10 +22,7 @@ public class SpellZone : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        /*if (!triggerIsDa)
-        {
-            myRenderer.material.color = new Color(75, 75, 75);
-        }*/
+        
     }
 
     void OnTriggerEnter(Collider other)

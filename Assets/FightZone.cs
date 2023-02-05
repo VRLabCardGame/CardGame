@@ -30,6 +30,8 @@ public class FightZone : MonoBehaviour
     {
         fightZoneHalfPlayer1.onTriggerEnter.AddListener(OnTheOtherTriggerEnterMethod);
         fightZoneHalfPlayer2.onTriggerEnter.AddListener(OnTheOtherTriggerEnterMethod1);
+        fightZoneHalfPlayer1.onTriggerExit.AddListener(OnTheOtherTriggerExitMethod);
+        fightZoneHalfPlayer2.onTriggerExit.AddListener(OnTheOtherTriggerExitMethod1);
 
     }
 
@@ -37,6 +39,8 @@ public class FightZone : MonoBehaviour
     {
         fightZoneHalfPlayer1.onTriggerEnter.RemoveListener(OnTheOtherTriggerEnterMethod);
         fightZoneHalfPlayer2.onTriggerEnter.RemoveListener(OnTheOtherTriggerEnterMethod1);
+        fightZoneHalfPlayer1.onTriggerExit.RemoveListener(OnTheOtherTriggerExitMethod);
+        fightZoneHalfPlayer2.onTriggerExit.RemoveListener(OnTheOtherTriggerExitMethod1);
 
     }
 
@@ -76,4 +80,25 @@ public class FightZone : MonoBehaviour
         // Do stuff
     }
 
+    void OnTheOtherTriggerExitMethod(Collider other)
+    {
+        Debug.Log("Collisionother2Exit");
+        if (other.transform.tag == "Card")
+        {
+            Debug.Log("Collisionohter2Exit");
+            CardPlayer1 = "";
+        }
+        // Do stuff
+    }
+
+    void OnTheOtherTriggerExitMethod1(Collider other)
+    {
+        Debug.Log("Collisionother2Exit");
+        if (other.transform.tag == "Card")
+        {
+            Debug.Log("Collisionohter2Exit");
+            CardPlayer2 = "";
+        }
+        // Do stuff
+    }
 }
