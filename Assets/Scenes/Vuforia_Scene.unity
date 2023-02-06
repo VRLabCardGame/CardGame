@@ -2240,7 +2240,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   mObserverBehaviour: {fileID: 84066743}
   mHiddenRoot: {fileID: 0}
-  mTargetName: Spielfeld_complete
+  mTargetName: Spielfeld
   mDatasetName: Vuforia/HL_CardGame_ImageTargets.xml
   mCastedBehaviour: {fileID: 84066743}
   mMeshFilter: {fileID: 0}
@@ -2303,13 +2303,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   PreviewVisible: 1
   RuntimeOcclusion: 0
-  mTrackableName: Spielfeld_complete
+  mTrackableName: Spielfeld
   mInitializedInEditor: 1
   mDataSetPath: Vuforia/HL_CardGame_ImageTargets.xml
-  mAspectRatio: 2.19005
+  mAspectRatio: 1.5600001
   mImageTargetType: 0
-  mWidth: 0.10000001
-  mHeight: 0.219005
+  mWidth: 0.1
+  mHeight: 0.156
   mRuntimeTexture: {fileID: 0}
   mMotionHint: 1
   mTrackingOptimization: 0
