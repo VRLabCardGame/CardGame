@@ -12,6 +12,8 @@ public class FightZoneHalf : MonoBehaviour
     public FightZone fightZone;
 
     public UnityEvent<Collider> onTriggerEnter;
+    public UnityEvent<Collider> onTriggerExit;
+
 
     // Start is called before the first frame update
     void Start()
@@ -35,5 +37,16 @@ public class FightZoneHalf : MonoBehaviour
         }
              // Do stuff
      }
+
+    void OnTriggerExit(Collider other)
+    {
+        Debug.Log("Collision1");
+        if (other.transform.tag == "Card")
+        {
+            Debug.Log("Collision");
+            onTriggerExit.Invoke(other);
+        }
+        // Do stuff
+    }
 
 }

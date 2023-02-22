@@ -8,10 +8,12 @@ public class LifeLineFrontPlayer1 : MonoBehaviour
     public Image image;
     public int maximum;
     public int current;
+    
+
     // Start is called before the first frame update
     void Start()
     {
-
+        
     }
 
     // Update is called once per frame
@@ -35,4 +37,12 @@ public class LifeLineFrontPlayer1 : MonoBehaviour
     {
         current = NewFill;
     }
+
+
+
+
+
+
+
+
 }

@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<QCARConfig xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="qcar_config.xsd">
+  <Tracking>
+    <ImageTarget name="Zauber11" size="0.100000 0.156000" />
+    <ImageTarget name="Zauber10" size="0.100000 0.156000" />
+    <ImageTarget name="Zauber9" size="0.100000 0.156000" />
+    <ImageTarget name="Zauber8" size="0.100000 0.156000" />
+    <ImageTarget name="Zauber7" size="0.100000 0.156000" />
+    <ImageTarget name="Zauber6" size="0.100000 0.156000" />
+    <ImageTarget name="Zauber5" size="0.100000 0.156000" />
+    <ImageTarget name="Zauber4" size="0.100000 0.156000" />
+    <ImageTarget name="Zauber3" size="0.100000 0.156000" />
+    <ImageTarget name="Zauber2" size="0.100000 0.156000" />
+    <ImageTarget name="Zauber1" size="0.100000 0.156000" />
+    <ImageTarget name="Zauber0" size="0.100000 0.156000" />
+    <ImageTarget name="Spielfeld_complete_full" size="0.400000 0.600000" />
+    <ImageTarget name="Monster102" size="0.100000 0.156000" />
+    <ImageTarget name="Monster101" size="0.100000 0.156000" />
+    <ImageTarget name="Monster100" size="0.100000 0.156000" />
+  </Tracking>
+</QCARConfig>

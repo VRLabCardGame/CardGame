@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<QCARConfig xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="qcar_config.xsd">
+  <Tracking>
+    <ImageTarget name="Spielfeld_resized" size="0.100000 0.146032" />
+    <ImageTarget name="Spielfeld" size="0.100000 0.156000" />
+    <ImageTarget name="_Turtle2" size="0.100000 0.156000" />
+    <ImageTarget name="_Turtle1" size="0.100000 0.156000" />
+    <ImageTarget name="_Snake2" size="0.100000 0.156000" />
+    <ImageTarget name="_Snake1" size="0.100000 0.156000" />
+    <ImageTarget name="_Monkey2" size="0.100000 0.156000" />
+    <ImageTarget name="_Monkey1" size="0.100000 0.156000" />
+    <ImageTarget name="_Fox2" size="0.100000 0.156000" />
+    <ImageTarget name="_Fox1" size="0.100000 0.156000" />
+    <ImageTarget name="_Fish2" size="0.100000 0.156000" />
+    <ImageTarget name="_Fish1" size="0.100000 0.156000" />
+    <ImageTarget name="_Dragon2" size="0.100000 0.156000" />
+    <ImageTarget name="_Dragon1" size="0.100000 0.156000" />
+    <ImageTarget name="_Dog2" size="0.100000 0.156000" />
+    <ImageTarget name="_Dog1" size="0.100000 0.156000" />
+    <ImageTarget name="_Bird2" size="0.100000 0.156000" />
+    <ImageTarget name="_Bird1" size="0.100000 0.156000" />
+    <ImageTarget name="Swap_Values" size="0.100000 0.156000" />
+    <ImageTarget name="Swap_Elements" size="0.100000 0.156000" />
+    <ImageTarget name="Draw_2" size="0.100000 0.156000" />
+    <ImageTarget name="Direct_DMG" size="0.100000 0.156000" />
+    <ImageTarget name="DEF_Wasser" size="0.100000 0.156000" />
+    <ImageTarget name="DEF_Natur" size="0.100000 0.156000" />
+    <ImageTarget name="DEF_Feuer" size="0.100000 0.156000" />
+    <ImageTarget name="DEF_Blitz" size="0.100000 0.156000" />
+    <ImageTarget name="ATK_Wasser" size="0.100000 0.156000" />
+    <ImageTarget name="ATK_Natur" size="0.100000 0.156000" />
+    <ImageTarget name="ATK_Feuer" size="0.100000 0.156000" />
+    <ImageTarget name="ATK_Blitz" size="0.100000 0.156000" />
+    <ImageTarget name="Spieler" size="0.100000 0.156000" />
+  </Tracking>
+</QCARConfig>
